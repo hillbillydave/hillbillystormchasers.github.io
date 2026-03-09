@@ -32,6 +32,19 @@ header::before {
   border-radius: 10px;
   z-index: 1;
 }
+header {
+  position: relative;
+}
+
+.header-title {
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+  left: 20px;
+  color: #ffffff;
+  font-size: 32px;
+  text-shadow: 2px 2px 6px black;
+}
 
 }
 nav {
