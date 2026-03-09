@@ -1,28 +1,26 @@
+/* ------------------------------
+   GLOBAL BODY STYLING
+--------------------------------*/
 body {
   font-family: Arial, sans-serif;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   padding: 20px;
   line-height: 1.6;
-  background-color: #0d0d0d; /* dark stormy background */
-  color: #f2f2f2; /* light text */
-  body {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+
+  /* Full‑screen storm background */
   background-image: url("photos/supercell.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
 }
-  body {
-  background-color: #0d0d0d;
-  color: #f2f2f2;
-  font-family: Arial, sans-serif;
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-  line-height: 1.6;
-}
 
+/* ------------------------------
+   HEADER BANNER
+--------------------------------*/
 header {
   position: relative;
   background-image: url("photos/header.jpg");
@@ -32,14 +30,6 @@ header {
   border-radius: 10px;
   margin-bottom: 20px;
 }
-<section>
-  <h2>Publications</h2>
-  <ul>
-    <li><a href="Blackwell_Information_Metric_Unification (1).pdf" target="_blank">Blackwell Information Metric Unification (PDF)</a></li>
-    <li><a href="The_Blackwell_Information_Metric_Unifica (1).pdf" target="_blank">The Ontological Decoherence–Information Metric Unified Framework (PDF)</a></li>
-    <li><a href="version_3_5.pdf" target="_blank">ODIM‑U v3.5 (PDF)</a></li>
-  </ul>
-</section>
 
 /* Dark overlay */
 header::before {
@@ -64,22 +54,10 @@ header::before {
   font-size: 32px;
   text-shadow: 2px 2px 6px black;
 }
-section {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-footer {
-  text-align: center;
-  margin-top: 40px;
-  padding: 20px;
-  color: #cccccc;
-  font-size: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-  
-}
+
+/* ------------------------------
+   NAVIGATION BAR
+--------------------------------*/
 nav {
   background-color: rgba(0, 0, 0, 0.6);
   padding: 12px;
@@ -99,27 +77,39 @@ nav a:hover {
   color: #ff6600;
 }
 
-
-nav {
-  text-align: center;
+/* ------------------------------
+   SECTIONS
+--------------------------------*/
+section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
   margin-bottom: 20px;
 }
 
-nav a {
-  text-decoration: none;
-  color: #0055aa;
-  font-weight: bold;
-  margin: 0 8px;
+/* ------------------------------
+   FOOTER
+--------------------------------*/
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  color: #cccccc;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-nav a:hover {
-  color: #ff6600;
-}
-
+/* ------------------------------
+   HEADINGS
+--------------------------------*/
 h1, h2 {
-  color: #333;
+  color: #ffffff;
 }
 
+/* ------------------------------
+   HORIZONTAL RULE
+--------------------------------*/
 hr {
   margin: 20px 0;
+  border-color: rgba(255, 255, 255, 0.2);
 }
