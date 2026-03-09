@@ -15,6 +15,19 @@ body {
 }
 
 }
+nav {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+nav a {
+  color: #ffcc00;
+}
+
+nav a:hover {
+  color: #ff6600;
+}
 
 nav {
   text-align: center;
