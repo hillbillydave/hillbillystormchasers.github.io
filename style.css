@@ -56,7 +56,12 @@ header::before {
   font-size: 32px;
   text-shadow: 2px 2px 6px black;
 }
-
+section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
 }
 nav {
