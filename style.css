@@ -14,7 +14,7 @@ body {
   background-repeat: no-repeat;
 }
 header {
-  background-image: url("photos/banner.jpg");
+  background-image: url("photos/header.jpg");
   background-size: cover;
   background-position: center;
   height: 200px;
