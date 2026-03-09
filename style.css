@@ -13,6 +13,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+header {
+  background-image: url("photos/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
 }
 nav {
