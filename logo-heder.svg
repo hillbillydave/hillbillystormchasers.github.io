@@ -1,0 +1,47 @@
+<svg width="900" height="300" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Storm-night gradient background -->
+  <defs>
+    <linearGradient id="stormNight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#222222"/>
+      <stop offset="100%" stop-color="#0d0d0d"/>
+    </linearGradient>
+
+    <!-- Teal curvature rings -->
+    <radialGradient id="curvatureGlow" cx="50%" cy="60%" r="70%">
+      <stop offset="0%" stop-color="#44aaff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#44aaff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="300" fill="url(#stormNight)"/>
+
+  <!-- Curvature rings -->
+  <circle cx="450" cy="180" r="180" fill="url(#curvatureGlow)"/>
+  <circle cx="450" cy="180" r="140" fill="url(#curvatureGlow)"/>
+  <circle cx="450" cy="180" r="100" fill="url(#curvatureGlow)"/>
+
+  <!-- Realistic right-moving supercell silhouette -->
+  <path d="M150 200 
+           C 250 120, 400 80, 600 110 
+           C 700 130, 780 160, 820 200
+           L 820 240 
+           L 150 240 Z"
+        fill="#111111" stroke="#000000" stroke-width="2" opacity="0.95"/>
+
+  <!-- Lightning bolt “H” -->
+  <path d="M330 80 L360 140 L340 140 L370 200 L330 150 L350 150 Z"
+        fill="#ffcc00" stroke="#ffcc00" stroke-width="2"/>
+
+  <!-- Title text -->
+  <text x="450" y="260" font-family="Georgia, serif" font-size="48" fill="#cccccc" text-anchor="middle" letter-spacing="3">
+    HILLBILLY STORM CHASERS
+  </text>
+
+  <!-- Subtitle -->
+  <text x="450" y="295" font-family="Arial, sans-serif" font-size="22" fill="#bbbbbb" text-anchor="middle" letter-spacing="2">
+    RESEARCH DIVISION
+  </text>
+
+</svg>
