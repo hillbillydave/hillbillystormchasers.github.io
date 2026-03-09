@@ -62,7 +62,15 @@ section {
   border-radius: 10px;
   margin-bottom: 20px;
 }
-
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  color: #cccccc;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+  
 }
 nav {
   background-color: rgba(0, 0, 0, 0.6);
