@@ -4,6 +4,8 @@ body {
   margin: auto;
   padding: 20px;
   line-height: 1.6;
+  background-color: #0d0d0d; /* dark stormy background */
+color: #f2f2f2; /* light text */
 }
 
 nav {
