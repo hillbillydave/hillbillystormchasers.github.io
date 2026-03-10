@@ -50,7 +50,7 @@ header::before {
   z-index: 2;
   bottom: 20px;
   left: 20px;
-  color: #ffffff;
+  color: black;
   font-size: 32px;
   text-shadow: 2px 2px 6px black;
 }
@@ -59,7 +59,7 @@ header::before {
    NAVIGATION BAR
 --------------------------------*/
 nav {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   padding: 12px;
   border-radius: 8px;
   text-align: center;
@@ -67,21 +67,21 @@ nav {
 }
 
 nav a {
-  color: #ffffff;
+  color: black;
   font-weight: bold;
   margin: 0 10px;
   text-decoration: none;
 }
 
 nav a:hover {
-  color: #ffffff;
+  color: black;
 }
 
 /* ------------------------------
    SECTIONS
 --------------------------------*/
 section {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -94,16 +94,16 @@ footer {
   text-align: center;
   margin-top: 40px;
   padding: 20px;
-  color: #cccccc;
+  color: black;
   font-size: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 /* ------------------------------
    HEADINGS
 --------------------------------*/
 h1, h2 {
-  color: #ffffff;
+  color: black;
 }
 
 /* ------------------------------
@@ -111,5 +111,6 @@ h1, h2 {
 --------------------------------*/
 hr {
   margin: 20px 0;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(0, 0, 0, 0.2);
 }
+
