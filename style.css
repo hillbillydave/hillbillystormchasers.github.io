@@ -67,14 +67,14 @@ nav {
 }
 
 nav a {
-  color: #ffcc00;
+  color: #ffffff;
   font-weight: bold;
   margin: 0 10px;
   text-decoration: none;
 }
 
 nav a:hover {
-  color: #ff6600;
+  color: #ffffff;
 }
 
 /* ------------------------------
