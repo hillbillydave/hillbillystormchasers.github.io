@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <title>Storm Chasing Gallery</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .gallery img {
+      width: 400px;
+      margin: 10px;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 
 <body>
@@ -15,7 +22,7 @@
   <nav>
     <a href="index.html">Home</a> |
     <a href="gallery.html">Gallery</a> |
-    <a href="research.html">Research</a> |
+    <a href="research.html">Research Division</a> |
     <a href="support.html">Support</a> |
     <a href="contact.html">Contact</a> |
     <a href="merch.html">Merch</a>
@@ -28,13 +35,7 @@
 
     <h2>Photos</h2>
 
-    <!-- Add your real storm photos here -->
-    <img src="photos/STORM.jpg" width="400" alt="Storm Photo">
-    <img src="photos/storm.jpg" width="400" alt="Storm Photo">
-    <img src="photos/header.jpg" width="400" alt="Storm Header">
-    <img src="photos/banner.jpg" width="400" alt="Storm Banner">
-
-    <p>More images coming soon.</p>
+    <div class="gallery" id="gallery"></div>
 
     <p><a href="index.html">Back to Home</a></p>
   </section>
@@ -42,6 +43,35 @@
   <footer>
     © 2026 Hillbilly Storm Chasers Research Division — All Rights Reserved
   </footer>
+
+  <script>
+    // Auto-load all images from the /photos/ folder
+    async function loadGallery() {
+      const folder = 'photos/';
+      const gallery = document.getElementById('gallery');
+
+      try {
+        const response = await fetch(folder);
+        const text = await response.text();
+
+        // Extract file names from directory listing
+        const imageFiles = [...text.matchAll(/href="([^"]+\.(jpg|jpeg|png|gif))"/gi)]
+          .map(match => match[1]);
+
+        imageFiles.forEach(file => {
+          const img = document.createElement('img');
+          img.src = folder + file;
+          img.alt = "Storm Photo";
+          gallery.appendChild(img);
+        });
+
+      } catch (error) {
+        gallery.innerHTML = "<p>Unable to load images automatically.</p>";
+      }
+    }
+
+    loadGallery();
+  </script>
 
 </body>
 </html>
