@@ -20,15 +20,15 @@
   </header>
 
   <nav>
-  <a href="index.html">Home</a> |
-  <a href="gallery.html">Gallery</a> |
-  <a href="research.html">Research Division</a> |
-  <a href="support.html">Support</a> |
-  <a href="contact.html">Contact</a> |
-  <a href="merch.html">Mission</a> |
-  <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
-  <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
-  <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
+    <a href="index.html">Home</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="research.html">Research Division</a> |
+    <a href="support.html">Support</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="merch.html">Mission</a> |
+    <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
+    <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
+    <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
   </nav>
 
   <hr>
@@ -48,24 +48,27 @@
     © 2026 Hillbilly Storm Chasers Research Division — All Rights Reserved
   </footer>
 
+  <!-- GitHub API Auto-Loader -->
   <script>
-    // Auto-load all images from the /photos/ folder
     async function loadGallery() {
-      const folder = 'photos/';
       const gallery = document.getElementById('gallery');
 
       try {
-        const response = await fetch(folder);
-        const text = await response.text();
+        // GitHub API URL for your photos folder
+        const apiUrl = "https://api.github.com/repos/hillbillydave/hillbillystormchasers.github.io/contents/photos";
+        const response = await fetch(apiUrl);
+        const files = await response.json();
 
-        // Extract file names from directory listing
-        const imageFiles = [...text.matchAll(/href="([^"]+\.(jpg|jpeg|png|gif))"/gi)]
-          .map(match => match[1]);
+        // Filter only image files
+        const imageFiles = files.filter(file =>
+          file.name.match(/\.(jpg|jpeg|png|gif)$/i)
+        );
 
+        // Add each image to the gallery
         imageFiles.forEach(file => {
           const img = document.createElement('img');
-          img.src = folder + file;
-          img.alt = "Storm Photo";
+          img.src = file.download_url;
+          img.alt = file.name;
           gallery.appendChild(img);
         });
 
