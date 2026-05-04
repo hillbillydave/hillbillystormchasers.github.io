@@ -44,7 +44,6 @@
       flex-shrink: 0;
     }
 
-    /* Hide scrollbar */
     .image-slider::-webkit-scrollbar {
       display: none;
     }
@@ -95,17 +94,29 @@
 <!-- ⭐ PRODUCT GRID -->
 <div class="product-grid">
 
-  <!-- ⭐ KNIFE PRODUCT -->
+  <!-- ⭐ BLACK KNIFE -->
   <div class="product-item">
     <div class="image-slider">
       <img src="store_photos/IMG_20260503_234104629.jpg" alt="Knife Image 1">
       <img src="store_photos/IMG_20260503_234150993.jpg" alt="Knife Image 2">
     </div>
 
-    <!-- ⭐ Add to Cart Button -->
     <paypal-add-to-cart-button data-id="HQQU3UVEMF8FL"></paypal-add-to-cart-button>
     <script>
       cartPaypal.AddToCart({ id: "HQQU3UVEMF8FL" })
+    </script>
+  </div>
+
+  <!-- ⭐ GRAY KNIFE -->
+  <div class="product-item">
+    <div class="image-slider">
+      <img src="store_photos/gray1.jpg" alt="Gray Knife Image 1">
+      <img src="store_photos/gray2.jpg" alt="Gray Knife Image 2">
+    </div>
+
+    <paypal-add-to-cart-button data-id="RBVWJA64PD65Y"></paypal-add-to-cart-button>
+    <script>
+      cartPaypal.AddToCart({ id: "RBVWJA64PD65Y" })
     </script>
   </div>
 
