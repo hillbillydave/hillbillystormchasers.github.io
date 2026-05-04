@@ -5,6 +5,9 @@
   <title>Store – Hillbilly Storm Chasers</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- ⭐ REQUIRED PayPal Cart Script (only once per page) -->
+  <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="3G56YQSBLK6S6"></script>
 </head>
 
 <body>
@@ -26,18 +29,12 @@
   <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
 </nav>
 
-<!-- ⭐ REQUIRED: PayPal View Cart Button (fixes the cart error) -->
+<!-- ⭐ View Cart Button (works for ALL products) -->
 <div style="text-align:center; margin-bottom:20px;">
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-    <input type="hidden" name="cmd" value="_cart">
-    <input type="hidden" name="business" value="hillbillystormchasers@gmail.com">
-    <input type="hidden" name="display" value="1">
-    <input type="image" 
-           src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" 
-           border="0" 
-           name="submit" 
-           alt="View Cart">
-  </form>
+  <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
+  <script>
+    cartPaypal.Cart({ id: "pp-view-cart" })
+  </script>
 </div>
 
 <div class="product-card">
@@ -55,17 +52,11 @@
 
   <p class="price">Price: $25.00</p>
 
-  <!-- ⭐ PayPal Add to Cart Button (your exact button) -->
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="HG7ZTAXCH77WG">
-    <input type="hidden" name="currency_code" value="USD">
-    <input type="image" 
-           src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" 
-           border="0" 
-           name="submit" 
-           alt="Add to Cart">
-  </form>
+  <!-- ⭐ Add to Cart Button for THIS product -->
+  <paypal-add-to-cart-button data-id="HQQU3UVEMF8FL"></paypal-add-to-cart-button>
+  <script>
+    cartPaypal.AddToCart({ id: "HQQU3UVEMF8FL" })
+  </script>
 </div>
 
 <style>
