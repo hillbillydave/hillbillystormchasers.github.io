@@ -1,101 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Store – Hillbilly Storm Chasers</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="favicon.png">
+<!-- ⭐ PRODUCT GRID -->
+<div class="product-grid">
 
-  <!-- ⭐ REQUIRED PayPal Cart Script (only once per page) -->
-  <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="3G56YQSBLK6S6"></script>
-</head>
+  <!-- ⭐ PRODUCT ITEM -->
+  <div class="product-item">
+    <div class="image-slider">
+      <img src="store_photos/IMG_20260503_234104629.jpg" alt="Knife Image 1">
+      <img src="store_photos/IMG_20260503_234150993.jpg" alt="Knife Image 2">
+    </div>
 
-<body>
-
-<header>
-  <h1 class="header-title">Hillbilly Storm Chasers</h1>
-</header>
-
-<nav>
-  <a href="index.html">Home</a> |
-  <a href="gallery.html">Gallery</a> |
-  <a href="research.html">Research Division</a> |
-  <a href="support.html">Support</a> |
-  <a href="contact.html">Contact</a> |
-  <a href="store.html">Store</a> |
-  <a href="merch.html">Mission</a> |
-  <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
-  <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
-  <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
-</nav>
-
-<!-- ⭐ View Cart Button (works for ALL products) -->
-<div style="text-align:center; margin-bottom:20px;">
-  <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
-  <script>
-    cartPaypal.Cart({ id: "pp-view-cart" })
-  </script>
-</div>
-
-<div class="product-card">
-  <h2>Black Elite Edge Knife</h2>
-
-  <div class="product-images">
-    <img src="store_photos/IMG_20260503_234104629.jpg" alt="Black Elite Edge Knife - Image 1">
-    <img src="store_photos/IMG_20260503_234150993.jpg" alt="Black Elite Edge Knife - Image 2">
+    <!-- ⭐ Add to Cart Button -->
+    <paypal-add-to-cart-button data-id="HQQU3UVEMF8FL"></paypal-add-to-cart-button>
+    <script>
+      cartPaypal.AddToCart({ id: "HQQU3UVEMF8FL" })
+    </script>
   </div>
 
-  <p class="description">
-    Solid Black Elite Edge folding knife. Good condition, sharp blade, smooth action.
-    Great for everyday carry or collection. Only one available.
-  </p>
-
-  <p class="price">Price: $25.00</p>
-
-  <!-- ⭐ Add to Cart Button for THIS product -->
-  <paypal-add-to-cart-button data-id="HQQU3UVEMF8FL"></paypal-add-to-cart-button>
-  <script>
-    cartPaypal.AddToCart({ id: "HQQU3UVEMF8FL" })
-  </script>
 </div>
 
 <style>
-nav {
-  margin-bottom: 20px;
-  font-size: 1.1em;
+/* ⭐ PRODUCT GRID */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 20px;
 }
 
-nav a {
-  color: #00aaff;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-.product-card {
-  border: 1px solid #444;
-  padding: 15px;
-  margin: 20px auto;
-  max-width: 500px;
+/* ⭐ PRODUCT ITEM BOX */
+.product-item {
   background: #111;
-  color: #eee;
+  border: 1px solid #444;
+  padding: 10px;
   border-radius: 8px;
+  text-align: center;
 }
 
-.product-images img {
-  width: 100%;
-  margin-bottom: 10px;
+/* ⭐ IMAGE SLIDER */
+.image-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+}
+
+.image-slider img {
+  width: 200px;
+  height: auto;
   border-radius: 6px;
+  scroll-snap-align: center;
+  flex-shrink: 0;
 }
 
-.price {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-top: 10px;
+/* Hide scrollbar (optional) */
+.image-slider::-webkit-scrollbar {
+  display: none;
 }
 </style>
-
-</body>
-</html>
