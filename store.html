@@ -1,16 +1,63 @@
-<div class="product">
-  <img src="photos/radio.jpg" alt="Used Weather Radio">
-  <h2>Used Weather Radio – Works Great</h2>
-  <p>Tested, working, good condition.</p>
-  <p>Price: $25</p>
+<div class="product-card">
+  <h2>Black Elite Edge Knife</h2>
 
-  <!-- PayPal Button -->
+  <div class="product-images">
+    <img src="store_photos/IMG_20260503_234104629.jpg" alt="Black Elite Edge Knife - Image 1">
+    <img src="store_photos/IMG_20260503_234150993.jpg" alt="Black Elite Edge Knife - Image 2">
+  </div>
+
+  <p class="description">
+    Solid Black Elite Edge folding knife. Good condition, sharp blade, smooth action.
+    Great for everyday carry or collection. Only one available.
+  </p>
+
+  <p class="price">Price: $25.00</p>
+
+  <!-- PayPal Buy Now Button -->
   <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
     <input type="hidden" name="cmd" value="_xclick">
     <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
-    <input type="hidden" name="item_name" value="Used Weather Radio">
+    <input type="hidden" name="item_name" value="Black Elite Edge Knife">
     <input type="hidden" name="amount" value="25.00">
     <input type="hidden" name="currency_code" value="USD">
-    <input type="submit" value="Buy Now">
+    <input type="submit" value="Buy Now" class="buy-button">
   </form>
 </div>
+
+<style>
+.product-card {
+  border: 1px solid #444;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 500px;
+  background: #111;
+  color: #eee;
+  border-radius: 8px;
+}
+
+.product-images img {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.price {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.buy-button {
+  background: #28a745;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.buy-button:hover {
+  background: #218838;
+}
+</style>
