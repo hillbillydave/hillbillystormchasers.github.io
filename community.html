@@ -4,38 +4,78 @@
   <meta charset="UTF-8">
   <title>Hillbilly Storm Chasers Community Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
       padding: 0;
-      background: #111;
+      background: url('placeholder-background.jpg') center/cover fixed no-repeat, #111;
       color: #f5f5f5;
       line-height: 1.6;
     }
+
+    header {
+      background: url('placeholder-header.jpg') center/cover no-repeat;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .header-title {
+      color: #ffd27f;
+      font-size: 2rem;
+      margin: 0;
+      text-shadow: 0 0 6px #000;
+    }
+
+    nav {
+      background: #000;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    nav a {
+      color: #ffb347;
+      margin: 0 6px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #ffd27f;
+    }
+
     .page-wrapper {
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem 1rem 3rem;
+      background: rgba(0, 0, 0, 0.65);
+      border-radius: 8px;
+      margin-top: 20px;
     }
+
     h1, h2, h3 {
       color: #ffd27f;
       margin-top: 1.5rem;
       margin-bottom: 0.5rem;
     }
+
     h1 {
       text-align: center;
       margin-bottom: 1rem;
     }
+
     p {
       margin: 0.4rem 0;
     }
+
     .tagline {
       text-align: center;
       font-style: italic;
       color: #ffefc2;
       margin-bottom: 2rem;
     }
+
     .section {
       margin-bottom: 1.8rem;
       padding: 1rem;
@@ -43,39 +83,62 @@
       border-radius: 6px;
       border: 1px solid #333;
     }
-    .section h2 {
-      margin-top: 0;
-    }
+
     ul {
       margin: 0.4rem 0 0.4rem 1.2rem;
       padding: 0;
     }
+
     li {
       margin: 0.2rem 0;
     }
+
     .contact-label {
       font-weight: bold;
       display: block;
       margin-top: 0.4rem;
     }
-    .ordination-wrapper {
-      margin-top: 2rem;
+
+    .ordination-section {
+      width: 100%;
       text-align: center;
+      margin: 40px 0;
     }
-    .ordination-wrapper h3 {
-      margin-bottom: 0.5rem;
-    }
-    a {
-      color: #ffb347;
-    }
-    a:hover {
-      color: #ffd27f;
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      margin-top: 40px;
     }
   </style>
 </head>
+
 <body>
+
+  <!-- HEADER -->
+  <header>
+    <h1 class="header-title">Hillbilly Storm Chasers Community Hub</h1>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="research.html">Research Division</a> |
+    <a href="support.html">Support</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="store.html">Store</a> |
+    <a href="merch.html">Mission</a> |
+    <a href="services.html">Services</a> |
+    <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
+    <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
+    <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
+  </nav>
+
+  <!-- PAGE CONTENT -->
   <div class="page-wrapper">
-    <h1>Hillbilly Storm Chasers Community Hub</h1>
+
     <div class="tagline">
       A space for local support, storm‑safety resources, ministerial services, and community connection.
     </div>
@@ -95,9 +158,7 @@
       <h2>Community Services</h2>
 
       <h3>Weddings &amp; Ceremonies</h3>
-      <p>
-        As an ordained minister, Rev. David Blackwell offers simple, honest, and meaningful ceremonies:
-      </p>
+      <p>As an ordained minister, Rev. David Blackwell offers simple, honest, and meaningful ceremonies:</p>
       <ul>
         <li>Small, personal weddings</li>
         <li>Outdoor and rural ceremonies</li>
@@ -105,9 +166,7 @@
       </ul>
 
       <h3>Funerals &amp; Memorials</h3>
-      <p>
-        Respectful, grounded support for families during difficult times:
-      </p>
+      <p>Respectful, grounded support for families during difficult times:</p>
       <ul>
         <li>Graveside services and memorial readings</li>
         <li>Simple, sincere words that honor the person’s life</li>
@@ -115,12 +174,10 @@
       </ul>
 
       <h3>Blessings &amp; Dedications</h3>
-      <p>
-        Ceremonies and moments of intention for everyday life:
-      </p>
+      <p>Ceremonies and moments of intention for everyday life:</p>
       <ul>
         <li>Home blessings</li>
-        <li>Vehicle blessings (yes, including storm‑chaser rigs)</li>
+        <li>Vehicle blessings</li>
         <li>Storm‑season protection prayers and community dedications</li>
       </ul>
     </div>
@@ -130,29 +187,23 @@
       <h2>Storm‑Chaser Outreach</h2>
 
       <h3>Severe Weather Safety Tips</h3>
-      <p>
-        Local, experience‑based guidance for tornado season and rural severe weather:
-      </p>
+      <p>Local, experience‑based guidance for tornado season and rural severe weather:</p>
       <ul>
         <li>Practical safety tips for families and drivers</li>
         <li>Basic preparedness for power loss and road closures</li>
-        <li>Common‑sense advice from real‑world chasing, not theory</li>
+        <li>Common‑sense advice from real‑world chasing</li>
       </ul>
 
       <h3>Community Alerts</h3>
-      <p>
-        During major weather events, this hub can serve as a central place to share:
-      </p>
+      <p>During major weather events, this hub can serve as a central place to share:</p>
       <ul>
         <li>Local impact notes and conditions</li>
         <li>Road, power, and access concerns</li>
-        <li>Recovery and assistance information when possible</li>
+        <li>Recovery and assistance information</li>
       </ul>
 
       <h3>Volunteer Opportunities</h3>
-      <p>
-        When storms hit, neighbors help neighbors. This space can highlight:
-      </p>
+      <p>When storms hit, neighbors help neighbors. This space can highlight:</p>
       <ul>
         <li>Informal cleanup and support efforts</li>
         <li>Ways to check on vulnerable folks nearby</li>
@@ -167,13 +218,11 @@
       <h3>Need Someone to Talk To?</h3>
       <p>
         Life gets heavy. If you need someone grounded, honest, and steady to talk to,
-        you can reach out. No sales pitch, no performance — just a real conversation.
+        you can reach out. No sales pitch — just a real conversation.
       </p>
 
       <h3>Community Requests</h3>
-      <p>
-        This hub can also be used for:
-      </p>
+      <p>This hub can also be used for:</p>
       <ul>
         <li>Prayer or intention requests</li>
         <li>Check‑ins on families going through a hard time</li>
@@ -181,13 +230,10 @@
       </ul>
     </div>
 
-    <!-- 5. Contact Rev. David -->
+    <!-- 5. Contact -->
     <div class="section">
       <h2>Contact Rev. David</h2>
-      <p>
-        To request a ceremony, ask about support, or get in touch about community needs,
-        you can use your site’s contact form or email. Here’s the information to collect:
-      </p>
+      <p>To request a ceremony or ask about support, here’s the information to send:</p>
 
       <span class="contact-label">Name:</span>
       <p>First and last name</p>
@@ -208,30 +254,31 @@
       </ul>
     </div>
 
-    <!-- 6. Ordination Certificate Embed -->
-    <!-- Ordination Certificate Section -->
-<div class="ordination-section" style="width: 100%; text-align: center; margin: 40px 0;">
-    <h3 style="margin-bottom: 10px;">Ordination Credentials</h3>
+    <!-- 6. Ordination Certificate -->
+    <div class="ordination-section">
+      <h3>Ordination Credentials</h3>
 
-    <div style="display: inline-block; text-align: center; font-weight: bold;">
+      <div style="display: inline-block; text-align: center; font-weight: bold;">
         <a href="https://www.ulc.org/free-ordination">
-            <img src="https://www.ulc.org/credentials/ordination-certificate-RGF2aWQgQmxhY2t3ZWxsXjgvOS8yMDI1XmxhcmdlXmZyZWVe.jpg"
-                 alt="My Universal Life Church Ordination"
-                 style="width: 100%; max-width: 600px; height: auto; padding: 3px; border: 0; margin: 0 auto; display: block;" />
+          <img src="https://www.ulc.org/credentials/ordination-certificate-RGF2aWQgQmxhY2t3ZWxsXjgvOS8yMDI1XmxhcmdlXmZyZWVe.jpg"
+               alt="My Universal Life Church Ordination"
+               style="width: 100%; max-width: 600px; height: auto; padding: 3px; border: 0; margin: 0 auto; display: block;" />
         </a>
 
         <a href="https://www.ulc.org/free-ordination"
            title="Get Ordained with the Universal Life Church"
            style="display: block; margin-top: 8px; font-size: 16px;">
-            Click here to get ordained.
+          Click here to get ordained.
         </a>
+      </div>
     </div>
-</div>
-
-
-
-
 
   </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Hillbilly Storm Chasers — Community Hub
+  </footer>
+
 </body>
 </html>
