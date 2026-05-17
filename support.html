@@ -1,19 +1,166 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Support the Chase</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Support the Chase – Hillbilly Storm Chasers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    :root{
+      color-scheme: dark;
+      --bg:#020617;
+      --card:#020617;
+      --border:#1f2937;
+      --accent:#fbbf24;
+      --accent-soft:#facc15;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);
+      color:var(--text);
+      line-height:1.6;
+      min-height:100vh;
+    }
+    a{color:var(--accent-soft);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* TOP NAV */
+    .site-nav{
+      background:#020617;
+      border-bottom:1px solid rgba(31,41,55,.9);
+      padding:8px 10px;
+      text-align:center;
+      font-size:13px;
+      position:sticky;
+      top:0;
+      z-index:40;
+    }
+    .site-nav a{
+      color:var(--muted);
+      margin:0 4px;
+      white-space:nowrap;
+    }
+    .site-nav a:hover{
+      color:var(--accent-soft);
+    }
+
+    /* HEADER */
+    header{
+      padding:12px 18px 10px;
+      border-bottom:1px solid rgba(15,23,42,.8);
+      background:linear-gradient(135deg,rgba(15,23,42,.96),rgba(8,47,73,.96));
+      position:sticky;
+      top:32px;
+      z-index:30;
+      backdrop-filter:blur(10px);
+    }
+    #brand{
+      font-size:20px;
+      font-weight:600;
+      color:var(--accent-soft);
+      text-shadow:0 0 10px rgba(0,0,0,.7);
+    }
+    header .row{
+      display:flex;
+      gap:8px;
+      margin-top:8px;
+      justify-content:flex-end;
+    }
+
+    button{
+      cursor:pointer;
+      background:linear-gradient(135deg,#fbbf24,#f97316);
+      border:none;
+      color:#111827;
+      font-weight:600;
+      padding:6px 12px;
+      border-radius:999px;
+      box-shadow:0 0 12px rgba(251,191,36,.35);
+    }
+    button:hover{
+      transform:translateY(-1px);
+      box-shadow:0 0 16px rgba(251,191,36,.5);
+    }
+    .hidden{display:none!important;}
+
+    .container{
+      max-width:960px;
+      margin:0 auto;
+      padding:18px 18px 40px;
+    }
+
+    /* CARD */
+    .card{
+      background:rgba(15,23,42,.96);
+      border-radius:16px;
+      border:1px solid rgba(31,41,55,.9);
+      padding:16px;
+      margin-bottom:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.7);
+    }
+    h1,h2,h3{color:var(--accent-soft);margin-bottom:6px;}
+
+    /* SUBNAV */
+    nav.subnav{
+      margin-top:18px;
+      padding:10px;
+      border-radius:999px;
+      border:1px solid rgba(31,41,55,.9);
+      background:rgba(15,23,42,.96);
+      display:flex;
+      gap:6px;
+      justify-content:space-between;
+      position:sticky;
+      top:82px;
+      z-index:25;
+      backdrop-filter:blur(10px);
+    }
+    nav.subnav a{
+      flex:1;
+      text-align:center;
+      padding:8px 6px;
+      font-size:13px;
+      border-radius:999px;
+      color:var(--muted);
+      border:1px solid transparent;
+    }
+    nav.subnav a.active{
+      background:radial-gradient(circle at top,#fbbf24,#f97316);
+      color:#111827;
+      font-weight:600;
+      box-shadow:0 0 14px rgba(251,191,36,.45);
+    }
+
+    @media(max-width:700px){
+      nav.subnav{
+        position:fixed;
+        left:0;right:0;bottom:0;
+        border-radius:0;
+        border-top:1px solid rgba(51,65,85,.7);
+      }
+      .container{padding:14px 14px 80px;}
+    }
+
+    footer{
+      text-align:center;
+      padding:16px 10px 26px;
+      font-size:12px;
+      color:var(--muted);
+      border-top:1px solid rgba(15,23,42,.9);
+      margin-top:10px;
+      background:rgba(3,7,18,.98);
+    }
+  </style>
 </head>
 
 <body>
 
-  <header>
-     <h1 class="header-title">Hillbilly Storm Chasers</h1>
-  </header>
-
-  <nav>
+<!-- SITE-WIDE NAV -->
+<nav class="site-nav">
   <a href="index.html">Home</a> |
   <a href="gallery.html">Gallery</a> |
   <a href="research.html">Research Division</a> |
@@ -22,87 +169,179 @@
   <a href="store.html">Store</a> |
   <a href="merch.html">Mission</a> |
   <a href="services.html">Services</a> |
+  <a href="ministry.html">Ministry</a> |
   <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
   <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
   <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
 </nav>
-  <hr>
 
-  <section>
-    <h1>Support the Chase</h1>
-    <p>
-      Hillbilly Storm Chasers is a fully independent storm‑chasing and research operation based in 
-      Wyandotte, Oklahoma. Every mile we drive, every storm we document, and every piece of research 
-      we publish is powered directly by community support. Your contribution helps keep us on the road 
-      and in the field — gathering real‑world data, capturing severe weather, and advancing frontier 
-      research in emergent time, informational geometry, and nonlinear dynamics.
-    </p>
+<header>
+  <div id="brand">Support the Chase</div>
+  <div class="row">
+    <button id="loginBtn">Login</button>
+    <button id="logoutBtn" class="hidden">Logout</button>
+  </div>
+</header>
 
-    <p>Your support directly funds:</p>
+<!-- SUPPORT SUBNAV -->
+<nav class="subnav">
+  <a id="navOverview" class="active">Overview</a>
+  <a id="navGFM">GoFundMe</a>
+  <a id="navDonate">Donate</a>
+  <a id="navHome">Home</a>
+</nav>
 
-    <ul>
-      <li><strong>Fuel</strong> for storm‑chasing deployments across Oklahoma, Kansas, Missouri, and beyond</li>
-      <li><strong>Camera gear</strong> including lenses, mounts, batteries, and stabilization equipment</li>
-      <li><strong>Data plans</strong> for radar access, GPS tracking, and real‑time storm analysis</li>
-      <li><strong>Safety equipment</strong> such as radios, first‑aid kits, and emergency supplies</li>
-      <li><strong>Research tools</strong> for ODIM‑U, Quiet‑Scalar Time, and informational‑geometry modeling</li>
-      <li><strong>Website and media hosting</strong> for sharing chase logs, research, and community updates</li>
-    </ul>
-    
-    <h2>GoFundMe – Support Advanced Physics Research</h2>
-<p>
-  In addition to storm‑chasing operations, I’m currently raising funds to upgrade 
-  the computing hardware used for our independent physics research — including 
-  simulations in informational geometry, emergent time, and nonlinear curvature 
-  dynamics. If you’d like to support that side of the work, you can do so through 
-  GoFundMe using the link below:
-</p>
+<div class="container">
 
-<p style="text-align:center;">
-  <a href="https://gofund.me/fd5a395bd" target="_blank" 
-     style="display:inline-block; padding:12px 20px; background:#28a745; 
-            color:white; font-weight:bold; border-radius:6px; text-decoration:none;">
-     Support the Research on GoFundMe
-  </a>
-</p>
+  <!-- OVERVIEW -->
+  <section id="overview" class="view">
+    <div class="card">
+      <h1>Support the Chase</h1>
+      <p>
+        Hillbilly Storm Chasers is a fully independent storm‑chasing and research operation based in 
+        Wyandotte, Oklahoma. Every mile we drive, every storm we document, and every piece of research 
+        we publish is powered directly by community support.
+      </p>
+      <p>
+        Your contribution helps keep us on the road — gathering real‑world data, capturing severe weather, 
+        and advancing frontier research in emergent time, informational geometry, and nonlinear dynamics.
+      </p>
 
-<p>
-  Every contribution helps accelerate the simulations, improve data processing, 
-  and push the research forward. Thank you for supporting both the chase and the 
-  science behind it.
-</p>
-
-    
-    <h2>Donate</h2>
-    <p>
-      If you’d like to support our storm‑chasing missions and independent research, you can donate 
-      directly through PayPal using the secure button below:
-    </p>
-
-    <!-- PayPal Hosted Donate Button -->
-    <script 
-      src="https://www.paypal.com/sdk/js?client-id=BAAqDkHE1VmbR7qjb1s2oCKJFyLmuO2DJS86nensA8BR1R5fFHrA9JEfc69sSy9msKPiaGG0G32Lwxh1ag&components=hosted-buttons&enable-funding=venmo&currency=USD">
-    </script>
-
-    <div id="paypal-container-6YZAQ5C92R4HU"></div>
-
-    <script>
-      paypal.HostedButtons({
-        hostedButtonId: "6YZAQ5C92R4HU",
-      }).render("#paypal-container-6YZAQ5C92R4HU")
-    </script>
-
-    <p>
-      Every contribution — big or small — helps keep the chase alive and supports the ongoing work of 
-      the Hillbilly Storm Chasers Research Division. Thank you for standing with us on the frontier.
-    </p>
-
-    <p><a href="index.html">Back to Home</a></p>
+      <h2>Your support directly funds:</h2>
+      <ul>
+        <li><strong>Fuel</strong> for storm‑chasing deployments</li>
+        <li><strong>Camera gear</strong> — lenses, mounts, batteries, stabilization</li>
+        <li><strong>Data plans</strong> — radar, GPS tracking, real‑time analysis</li>
+        <li><strong>Safety equipment</strong> — radios, first‑aid, emergency supplies</li>
+        <li><strong>Research tools</strong> — ODIM‑U, QSTF, informational‑geometry modeling</li>
+        <li><strong>Website & media hosting</strong> — chase logs, research, updates</li>
+      </ul>
+    </div>
   </section>
 
-  <footer>
-    © 2026 Hillbilly Storm Chasers — All Rights Reserved
-  </footer>
+  <!-- GOFUNDME -->
+  <section id="gfm" class="view hidden">
+    <div class="card">
+      <h2>GoFundMe – Support Advanced Physics Research</h2>
+      <p>
+        I’m currently raising funds to upgrade the computing hardware used for independent physics research — 
+        including simulations in informational geometry, emergent time, and nonlinear curvature dynamics.
+      </p>
+
+      <p style="text-align:center;">
+        <a href="https://gofund.me/fd5a395bd" target="_blank"
+           style="display:inline-block;padding:12px 20px;background:#28a745;
+                  color:white;font-weight:bold;border-radius:6px;text-decoration:none;">
+          Support the Research on GoFundMe
+        </a>
+      </p>
+
+      <p>
+        Every contribution helps accelerate simulations, improve data processing, and push the research forward.
+      </p>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section id="donate" class="view hidden">
+    <div class="card">
+      <h2>Donate</h2>
+      <p>
+        If you’d like to support our storm‑chasing missions and independent research, you can donate 
+        directly through PayPal using the secure button below:
+      </p>
+
+      <!-- PayPal Hosted Donate Button -->
+      <script 
+        src="https://www.paypal.com/sdk/js?client-id=BAAqDkHE1VmbR7qjb1s2oCKJFyLmuO2DJS86nensA8BR1R5fFHrA9JEfc69sSy9msKPiaGG0G32Lwxh1ag&components=hosted-buttons&enable-funding=venmo&currency=USD">
+      </script>
+
+      <div id="paypal-container-6YZAQ5C92R4HU"></div>
+
+      <script>
+        paypal.HostedButtons({
+          hostedButtonId: "6YZAQ5C92R4HU",
+        }).render("#paypal-container-6YZAQ5C92R4HU")
+      </script>
+
+      <p>
+        Every contribution — big or small — helps keep the chase alive and supports the ongoing work 
+        of the Hillbilly Storm Chasers Research Division.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOME -->
+  <section id="home" class="view hidden">
+    <div class="card">
+      <h2>Return Home</h2>
+      <p><a href="index.html">Back to Home</a></p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  /* SUBNAV VIEW SWITCHING */
+  const views = {
+    overview: document.getElementById('overview'),
+    gfm: document.getElementById('gfm'),
+    donate: document.getElementById('donate'),
+    home: document.getElementById('home')
+  };
+
+  const navLinks = {
+    overview: document.getElementById('navOverview'),
+    gfm: document.getElementById('navGFM'),
+    donate: document.getElementById('navDonate'),
+    home: document.getElementById('navHome')
+  };
+
+  function switchView(name){
+    Object.keys(views).forEach(k=>{
+      views[k].classList.toggle('hidden', k !== name);
+    });
+    Object.keys(navLinks).forEach(k=>{
+      navLinks[k].classList.toggle('active', k === name);
+    });
+  }
+
+  navLinks.overview.onclick = ()=>switchView('overview');
+  navLinks.gfm.onclick = ()=>switchView('gfm');
+  navLinks.donate.onclick = ()=>switchView('donate');
+  navLinks.home.onclick = ()=>switchView('home');
+
+  /* LOGIN SYSTEM */
+  const loginBtn = document.getElementById('loginBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  loginBtn.onclick = ()=>{
+    const email = prompt("Email:");
+    const pass = prompt("Password:");
+    if(email && pass){
+      localStorage.setItem('hsc_user', email);
+      loginBtn.classList.add('hidden');
+      logoutBtn.classList.remove('hidden');
+    }
+  };
+
+  logoutBtn.onclick = ()=>{
+    localStorage.removeItem('hsc_user');
+    loginBtn.classList.remove('hidden');
+    logoutBtn.classList.add('hidden');
+  };
+
+  (function init(){
+    if(localStorage.getItem('hsc_user')){
+      loginBtn.classList.add('hidden');
+      logoutBtn.classList.remove('hidden');
+    }
+  })();
+</script>
+
+<footer>
+  © 2026 Hillbilly Storm Chasers — All Rights Reserved
+</footer>
 
 </body>
 </html>
