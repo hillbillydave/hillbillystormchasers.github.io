@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hillbilly Storm Chasers – Ministry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('placeholder-background.jpg') center/cover fixed no-repeat, #111;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    header {
+      background: url('placeholder-header.jpg') center/cover no-repeat;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .header-title {
+      color: #ffd27f;
+      font-size: 2rem;
+      margin: 0;
+      text-shadow: 0 0 6px #000;
+    }
+
+    nav {
+      background: #000;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    nav a {
+      color: #ffb347;
+      margin: 0 6px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #ffd27f;
+    }
+
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+      background: rgba(0, 0, 0, 0.65);
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    h1, h2, h3 {
+      color: #ffd27f;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0.4rem 0;
+    }
+
+    .tagline {
+      text-align: center;
+      font-style: italic;
+      color: #ffefc2;
+      margin-bottom: 2rem;
+    }
+
+    .section {
+      margin-bottom: 1.8rem;
+      padding: 1rem;
+      background: #1a1a1a;
+      border-radius: 6px;
+      border: 1px solid #333;
+    }
+
+    ul {
+      margin: 0.4rem 0 0.4rem 1.2rem;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.2rem 0;
+    }
+
+    .contact-label {
+      font-weight: bold;
+      display: block;
+      margin-top: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1 class="header-title">Hillbilly Storm Chasers – Ministry</h1>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="gallery.html">Gallery</a> |
+    <a href="research.html">Research Division</a> |
+    <a href="support.html">Support</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="store.html">Store</a> |
+    <a href="merch.html">Mission</a> |
+    <a href="services.html">Services</a> |
+    <a href="ministry.html">Ministry</a> |
+    <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
+    <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
+    <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-wrapper">
+
+    <div class="tagline">
+      A simple, honest ministry for real people, real moments, and real life.
+    </div>
+
+    <!-- 1. Welcome -->
+    <div class="section">
+      <h2>Welcome</h2>
+      <p>
+        This ministry is built on honesty, respect, and showing up for people when it matters.
+        No pressure, no judgment — just a steady hand and a listening ear.
+      </p>
+      <p>
+        Whether you need a ceremony, a blessing, a memorial, or someone to talk to,
+        this page explains what I offer and how to reach me.
+      </p>
+    </div>
+
+    <!-- 2. Ministry Services -->
+    <div class="section">
+      <h2>Ministry Services</h2>
+
+      <h3>Weddings & Ceremonies</h3>
+      <ul>
+        <li>Simple, meaningful weddings</li>
+        <li>Outdoor and rural ceremonies</li>
+        <li>Custom vows if requested</li>
+      </ul>
+
+      <h3>Funerals & Memorials</h3>
+      <ul>
+        <li>Graveside services</li>
+        <li>Memorial readings</li>
+        <li>Family‑centered, respectful, and calm</li>
+      </ul>
+
+      <h3>Blessings & Dedications</h3>
+      <ul>
+        <li>Home blessings</li>
+        <li>Vehicle blessings</li>
+        <li>Family or personal dedications</li>
+      </ul>
+
+      <h3>Spiritual Support</h3>
+      <ul>
+        <li>Someone to talk to</li>
+        <li>Personal guidance</li>
+        <li>Quiet, grounded conversation</li>
+      </ul>
+    </div>
+
+    <!-- 3. Ministry Notes -->
+    <div class="section">
+      <h2>Ministry Notes</h2>
+      <p>
+        From time to time, I’ll share short reflections, thoughts, or messages here.
+        Nothing fancy — just simple words meant to help or encourage.
+      </p>
+
+      <ul>
+        <li><strong>[Example]</strong> A reminder that small kindnesses matter more than people realize.</li>
+        <li><strong>[Example]</strong> A thought about patience during hard seasons.</li>
+        <li><strong>[Example]</strong> A reflection on showing up for others.</li>
+      </ul>
+
+      <p style="font-size: 0.9rem; color: #ccc;">
+        (Replace these with real notes as you go.)
+      </p>
+    </div>
+
+    <!-- 4. Testimonies -->
+    <div class="section">
+      <h2>Testimonies</h2>
+      <p>
+        If someone wants to share a kind word about a ceremony or support they received,
+        this is where those stories will go.
+      </p>
+      <p>
+        Testimonies help others know what to expect — simple, honest, and real.
+      </p>
+    </div>
+
+    <!-- 5. Contact -->
+    <div class="section">
+      <h2>Contact</h2>
+      <p>If you’d like to request a ceremony or talk about something personal, here’s what to send:</p>
+
+      <ul>
+        <li><strong>Name</strong></li>
+        <li><strong>What you need</strong> (wedding, memorial, blessing, support, etc.)</li>
+        <li><strong>Date or timeframe</strong></li>
+        <li><strong>Any details you want to share</strong></li>
+      </ul>
+
+      <p>Email: <strong>hillbillystormchasers@gmail.com</strong></p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Hillbilly Storm Chasers — Ministry
+  </footer>
+
+</body>
+</html>
