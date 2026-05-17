@@ -1,234 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Storm Chasing Gallery</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
-    :root{
-      color-scheme: dark;
-      --bg:#020617;
-      --card:#020617;
-      --border:#1f2937;
-      --accent:#fbbf24;
-      --accent-soft:#facc15;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);
-      color:var(--text);
-      line-height:1.6;
-      min-height:100vh;
-    }
-    a{color:var(--accent-soft);text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    /* TOP NAV */
-    .site-nav{
-      background:#020617;
-      border-bottom:1px solid rgba(31,41,55,.9);
-      padding:8px 10px;
-      text-align:center;
-      font-size:13px;
-      position:sticky;
-      top:0;
-      z-index:40;
-    }
-    .site-nav a{
-      color:var(--muted);
-      margin:0 4px;
-      text-decoration:none;
-      white-space:nowrap;
-    }
-    .site-nav a:hover{
-      color:var(--accent-soft);
-      text-decoration:underline;
+    /* Auto-grid layout */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 15px;
+      padding: 10px;
     }
 
-    /* HEADER */
-    header{
-      padding:12px 18px 10px;
-      border-bottom:1px solid rgba(15,23,42,.8);
-      background:linear-gradient(135deg,rgba(15,23,42,.96),rgba(8,47,73,.96));
-      position:sticky;
-      top:32px;
-      z-index:30;
-      backdrop-filter:blur(10px);
-    }
-    #brand{
-      font-size:20px;
-      font-weight:600;
-      letter-spacing:.04em;
-      color:var(--accent-soft);
-      text-shadow:0 0 10px rgba(0,0,0,.7);
-    }
-    header .row{
-      display:flex;
-      gap:8px;
-      margin-top:8px;
-      align-items:center;
-      justify-content:flex-end;
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      object-fit: cover;
+      height: 260px;
     }
 
-    select,button,input,textarea{
-      background:#020617;
-      color:var(--text);
-      border:1px solid var(--border);
-      border-radius:999px;
-      padding:6px 10px;
-      font-size:13px;
-    }
-    button{
-      cursor:pointer;
-      background:linear-gradient(135deg,#fbbf24,#f97316);
-      border:none;
-      color:#111827;
-      font-weight:600;
-      box-shadow:0 0 12px rgba(251,191,36,.35);
-      transition:transform .08s ease,box-shadow .08s ease,filter .08s ease;
-    }
-    button:hover{
-      transform:translateY(-1px);
-      box-shadow:0 0 16px rgba(251,191,36,.5);
-      filter:brightness(1.05);
-    }
-    .hidden{display:none !important;}
-
-    .container{
-      max-width:1100px;
-      margin:0 auto;
-      padding:18px 18px 40px;
+    .gallery img:hover {
+      transform: scale(1.03);
     }
 
-    /* CARD */
-    .card{
-      background:rgba(15,23,42,.96);
-      border-radius:16px;
-      border:1px solid rgba(31,41,55,.9);
-      padding:14px 14px 16px;
-      margin-bottom:14px;
-      box-shadow:0 10px 30px rgba(0,0,0,.7);
-    }
-    h1,h2{color:var(--accent-soft);margin-bottom:6px;}
-
-    /* SUBNAV */
-    nav.subnav{
-      margin-top:18px;
-      padding:10px 10px 8px;
-      border-radius:999px;
-      border:1px solid rgba(31,41,55,.9);
-      background:rgba(15,23,42,.96);
-      display:flex;
-      gap:6px;
-      justify-content:space-between;
-      position:sticky;
-      top:82px;
-      z-index:25;
-      backdrop-filter:blur(10px);
-    }
-    nav.subnav a{
-      flex:1;
-      text-align:center;
-      padding:8px 6px;
-      font-size:13px;
-      border-radius:999px;
-      color:var(--muted);
-      text-decoration:none;
-      border:1px solid transparent;
-    }
-    nav.subnav a.active{
-      background:radial-gradient(circle at top,#fbbf24,#f97316);
-      color:#111827;
-      border-color:rgba(15,23,42,.9);
-      font-weight:600;
-      box-shadow:0 0 14px rgba(251,191,36,.45);
+    /* Lightbox overlay */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
     }
 
-    /* GALLERY GRID */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-      gap:15px;
-      padding:10px;
-    }
-    .gallery img{
-      width:100%;
-      height:240px;
-      object-fit:cover;
-      border-radius:12px;
-      cursor:pointer;
-      transition:transform .2s ease;
-    }
-    .gallery img:hover{
-      transform:scale(1.03);
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
     }
 
-    /* LIGHTBOX */
-    #lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.9);
-      display:none;
-      justify-content:center;
-      align-items:center;
-      z-index:9999;
-    }
-    #lightbox img{
-      max-width:90%;
-      max-height:90%;
-      border-radius:10px;
-    }
-    .slide-btn{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      font-size:40px;
-      color:white;
-      cursor:pointer;
-      padding:10px;
-      user-select:none;
-    }
-    #prevBtn{left:30px;}
-    #nextBtn{right:30px;}
-    #closeBtn{
-      position:absolute;
-      top:20px;
-      right:30px;
-      font-size:40px;
-      color:white;
-      cursor:pointer;
+    /* Slideshow buttons */
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+      user-select: none;
     }
 
-    @media(max-width:700px){
-      nav.subnav{
-        position:fixed;
-        left:0;right:0;bottom:0;
-        border-radius:0;
-        border-top:1px solid rgba(51,65,85,.7);
-      }
-      .container{padding:14px 14px 80px;}
-    }
+    #prevBtn { left: 30px; }
+    #nextBtn { right: 30px; }
 
-    footer{
-      text-align:center;
-      padding:16px 10px 26px;
-      font-size:12px;
-      color:var(--muted);
-      border-top:1px solid rgba(15,23,42,.9);
-      margin-top:10px;
-      background:rgba(3,7,18,.98);
+    #closeBtn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
 
-<!-- SITE-WIDE NAV -->
-<nav class="site-nav">
+  <header>
+     <h1 class="header-title">Hillbilly Storm Chasers</h1>
+  </header>
+
+  <nav>
   <a href="index.html">Home</a> |
   <a href="gallery.html">Gallery</a> |
   <a href="research.html">Research Division</a> |
@@ -237,190 +86,96 @@
   <a href="store.html">Store</a> |
   <a href="merch.html">Mission</a> |
   <a href="services.html">Services</a> |
-  <a href="ministry.html">Ministry</a> |
   <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
   <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
   <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
 </nav>
 
-<header>
-  <div id="brand">Storm Chasing Gallery</div>
-  <div class="row">
-    <button id="loginBtn">Login</button>
-    <button id="logoutBtn" class="hidden">Logout</button>
-  </div>
-</header>
 
-<!-- GALLERY SUBNAV -->
-<nav class="subnav">
-  <a id="navPhotos" class="active">Photos</a>
-  <a id="navVideos">Videos</a>
-  <a id="navUpload">Upload</a>
-  <a id="navContact">Contact</a>
-</nav>
+  <hr>
 
-<div class="container">
+  <section>
+    <h1>Storm Chasing Gallery</h1>
+    <p>Live field photography from the Hillbilly Storm Chasers Research Division.</p>
 
-  <!-- PHOTOS -->
-  <section id="photos" class="view">
-    <div class="card">
-      <h2>Live Field Photography</h2>
-      <p>Captured across Oklahoma, Kansas, Missouri, and the Midwest.</p>
-    </div>
+    <h2>Photos</h2>
 
     <div class="gallery" id="gallery"></div>
+
+    <p><a href="index.html">Back to Home</a></p>
   </section>
 
-  <!-- VIDEOS -->
-  <section id="videos" class="view hidden">
-    <div class="card">
-      <h2>Videos</h2>
-      <p>Video section coming soon.</p>
-    </div>
-  </section>
+  <footer>
+    © 2026 Hillbilly Storm Chasers Research Division — All Rights Reserved
+  </footer>
 
-  <!-- UPLOAD -->
-  <section id="upload" class="view hidden">
-    <div class="card">
-      <h2>Upload Coming Soon</h2>
-      <p>This will allow you to upload chase photos directly.</p>
-    </div>
-  </section>
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <span id="closeBtn">&times;</span>
+    <span id="prevBtn" class="slide-btn">&#10094;</span>
+    <img id="lightboxImg">
+    <span id="nextBtn" class="slide-btn">&#10095;</span>
+  </div>
 
-  <!-- CONTACT -->
-  <section id="contact" class="view hidden">
-    <div class="card">
-      <h2>Contact</h2>
-      <p><a href="contact.html">Get in touch</a></p>
-    </div>
-  </section>
+  <!-- GitHub API Auto-Loader + Lightbox + Sorting + Lazy Load -->
+  <script>
+    let images = [];
+    let currentIndex = 0;
 
-</div>
+    async function loadGallery() {
+      const gallery = document.getElementById('gallery');
 
-<!-- LIGHTBOX -->
-<div id="lightbox">
-  <span id="closeBtn">&times;</span>
-  <span id="prevBtn" class="slide-btn">&#10094;</span>
-  <img id="lightboxImg">
-  <span id="nextBtn" class="slide-btn">&#10095;</span>
-</div>
+      try {
+        const apiUrl = "https://api.github.com/repos/hillbillydave/hillbillystormchasers.github.io/contents/photos";
+        const response = await fetch(apiUrl);
+        const files = await response.json();
 
-<script>
-  /* SUBNAV VIEW SWITCHING */
-  const views = {
-    photos: document.getElementById('photos'),
-    videos: document.getElementById('videos'),
-    upload: document.getElementById('upload'),
-    contact: document.getElementById('contact')
-  };
+        // Filter only images
+        images = files
+          .filter(file => file.name.match(/\.(jpg|jpeg|png|gif)$/i))
+          .sort((a, b) => new Date(b.commit?.author?.date || 0) - new Date(a.commit?.author?.date || 0));
 
-  const navLinks = {
-    photos: document.getElementById('navPhotos'),
-    videos: document.getElementById('navVideos'),
-    upload: document.getElementById('navUpload'),
-    contact: document.getElementById('navContact')
-  };
+        images.forEach((file, index) => {
+          const img = document.createElement('img');
+          img.src = file.download_url;
+          img.alt = file.name;
+          img.loading = "lazy"; // Lazy loading
+          img.dataset.index = index;
+          img.onclick = () => openLightbox(index);
+          gallery.appendChild(img);
+        });
 
-  function switchView(name){
-    Object.keys(views).forEach(k=>{
-      views[k].classList.toggle('hidden', k !== name);
-    });
-    Object.keys(navLinks).forEach(k=>{
-      navLinks[k].classList.toggle('active', k === name);
-    });
-  }
-
-  navLinks.photos.onclick = ()=>switchView('photos');
-  navLinks.videos.onclick = ()=>switchView('videos');
-  navLinks.upload.onclick = ()=>switchView('upload');
-  navLinks.contact.onclick = ()=>switchView('contact');
-
-  /* LOGIN SYSTEM */
-  const loginBtn = document.getElementById('loginBtn');
-  const logoutBtn = document.getElementById('logoutBtn');
-
-  loginBtn.onclick = ()=>{
-    const email = prompt("Email:");
-    const pass = prompt("Password:");
-    if(email && pass){
-      localStorage.setItem('hsc_user', email);
-      loginBtn.classList.add('hidden');
-      logoutBtn.classList.remove('hidden');
+      } catch (error) {
+        gallery.innerHTML = "<p>Unable to load images automatically.</p>";
+      }
     }
-  };
 
-  logoutBtn.onclick = ()=>{
-    localStorage.removeItem('hsc_user');
-    loginBtn.classList.remove('hidden');
-    logoutBtn.classList.add('hidden');
-  };
-
-  (function init(){
-    if(localStorage.getItem('hsc_user')){
-      loginBtn.classList.add('hidden');
-      logoutBtn.classList.remove('hidden');
+    function openLightbox(index) {
+      currentIndex = index;
+      document.getElementById('lightboxImg').src = images[index].download_url;
+      document.getElementById('lightbox').style.display = "flex";
     }
-  })();
 
-  /* GITHUB AUTO-LOADING GALLERY */
-  let images = [];
-  let currentIndex = 0;
-
-  async function loadGallery() {
-    const gallery = document.getElementById('gallery');
-
-    try {
-      const apiUrl = "https://api.github.com/repos/hillbillydave/hillbillystormchasers.github.io/contents/photos";
-      const response = await fetch(apiUrl);
-      const files = await response.json();
-
-      images = files.filter(f => f.name.match(/\.(jpg|jpeg|png|gif)$/i));
-
-      images.forEach((file, index) => {
-        const img = document.createElement('img');
-        img.src = file.download_url;
-        img.alt = file.name;
-        img.loading = "lazy";
-        img.dataset.index = index;
-        img.onclick = () => openLightbox(index);
-        gallery.appendChild(img);
-      });
-
-    } catch (error) {
-      gallery.innerHTML = "<p>Unable to load images.</p>";
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = "none";
     }
-  }
 
-  function openLightbox(index){
-    currentIndex = index;
-    document.getElementById('lightboxImg').src = images[index].download_url;
-    document.getElementById('lightbox').style.display = "flex";
-  }
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      openLightbox(currentIndex);
+    }
 
-  function closeLightbox(){
-    document.getElementById('lightbox').style.display = "none";
-  }
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      openLightbox(currentIndex);
+    }
 
-  function nextImage(){
-    currentIndex = (currentIndex + 1) % images.length;
-    openLightbox(currentIndex);
-  }
+    document.getElementById('closeBtn').onclick = closeLightbox;
+    document.getElementById('nextBtn').onclick = nextImage;
+    document.getElementById('prevBtn').onclick = prevImage;
 
-  function prevImage(){
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    openLightbox(currentIndex);
-  }
-
-  document.getElementById('closeBtn').onclick = closeLightbox;
-  document.getElementById('nextBtn').onclick = nextImage;
-  document.getElementById('prevBtn').onclick = prevImage;
-
-  loadGallery();
-</script>
-
-<footer>
-  © 2026 Hillbilly Storm Chasers — All Rights Reserved
-</footer>
+    loadGallery();
+  </script>
 
 </body>
 </html>
