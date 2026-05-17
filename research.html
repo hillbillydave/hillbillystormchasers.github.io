@@ -1,165 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Research Division – Hillbilly Storm Chasers</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    :root{
-      color-scheme: dark;
-      --bg:#020617;
-      --card:#020617;
-      --border:#1f2937;
-      --accent:#fbbf24;
-      --accent-soft:#facc15;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);
-      color:var(--text);
-      line-height:1.6;
-      min-height:100vh;
-    }
-    a{color:var(--accent-soft);text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    /* TOP NAV */
-    .site-nav{
-      background:#020617;
-      border-bottom:1px solid rgba(31,41,55,.9);
-      padding:8px 10px;
-      text-align:center;
-      font-size:13px;
-      position:sticky;
-      top:0;
-      z-index:40;
-    }
-    .site-nav a{
-      color:var(--muted);
-      margin:0 4px;
-      white-space:nowrap;
-    }
-    .site-nav a:hover{
-      color:var(--accent-soft);
-    }
-
-    /* HEADER */
-    header{
-      padding:12px 18px 10px;
-      border-bottom:1px solid rgba(15,23,42,.8);
-      background:linear-gradient(135deg,rgba(15,23,42,.96),rgba(8,47,73,.96));
-      position:sticky;
-      top:32px;
-      z-index:30;
-      backdrop-filter:blur(10px);
-    }
-    #brand{
-      font-size:20px;
-      font-weight:600;
-      color:var(--accent-soft);
-      text-shadow:0 0 10px rgba(0,0,0,.7);
-    }
-    header .row{
-      display:flex;
-      gap:8px;
-      margin-top:8px;
-      justify-content:flex-end;
-    }
-
-    button{
-      cursor:pointer;
-      background:linear-gradient(135deg,#fbbf24,#f97316);
-      border:none;
-      color:#111827;
-      font-weight:600;
-      padding:6px 12px;
-      border-radius:999px;
-      box-shadow:0 0 12px rgba(251,191,36,.35);
-    }
-    button:hover{
-      transform:translateY(-1px);
-      box-shadow:0 0 16px rgba(251,191,36,.5);
-    }
-    .hidden{display:none!important;}
-
-    .container{
-      max-width:960px;
-      margin:0 auto;
-      padding:18px 18px 40px;
-    }
-
-    /* CARD */
-    .card{
-      background:rgba(15,23,42,.96);
-      border-radius:16px;
-      border:1px solid rgba(31,41,55,.9);
-      padding:16px;
-      margin-bottom:14px;
-      box-shadow:0 10px 30px rgba(0,0,0,.7);
-    }
-    h1,h2,h3{color:var(--accent-soft);margin-bottom:6px;}
-
-    /* SUBNAV */
-    nav.subnav{
-      margin-top:18px;
-      padding:10px;
-      border-radius:999px;
-      border:1px solid rgba(31,41,55,.9);
-      background:rgba(15,23,42,.96);
-      display:flex;
-      gap:6px;
-      justify-content:space-between;
-      position:sticky;
-      top:82px;
-      z-index:25;
-      backdrop-filter:blur(10px);
-    }
-    nav.subnav a{
-      flex:1;
-      text-align:center;
-      padding:8px 6px;
-      font-size:13px;
-      border-radius:999px;
-      color:var(--muted);
-      border:1px solid transparent;
-    }
-    nav.subnav a.active{
-      background:radial-gradient(circle at top,#fbbf24,#f97316);
-      color:#111827;
-      font-weight:600;
-      box-shadow:0 0 14px rgba(251,191,36,.45);
-    }
-
-    @media(max-width:700px){
-      nav.subnav{
-        position:fixed;
-        left:0;right:0;bottom:0;
-        border-radius:0;
-        border-top:1px solid rgba(51,65,85,.7);
-      }
-      .container{padding:14px 14px 80px;}
-    }
-
-    footer{
-      text-align:center;
-      padding:16px 10px 26px;
-      font-size:12px;
-      color:var(--muted);
-      border-top:1px solid rgba(15,23,42,.9);
-      margin-top:10px;
-      background:rgba(3,7,18,.98);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
 
-<!-- SITE-WIDE NAV -->
-<nav class="site-nav">
+  <header>
+     <h1 class="header-title">Hillbilly Storm Chasers Research Division</h1>
+  </header>
+
+  <nav>
   <a href="index.html">Home</a> |
   <a href="gallery.html">Gallery</a> |
   <a href="research.html">Research Division</a> |
@@ -168,167 +22,118 @@
   <a href="store.html">Store</a> |
   <a href="merch.html">Mission</a> |
   <a href="services.html">Services</a> |
-  <a href="ministry.html">Ministry</a> |
   <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
   <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
   <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
 </nav>
 
-<header>
-  <div id="brand">Research Division</div>
-  <div class="row">
-    <button id="loginBtn">Login</button>
-    <button id="logoutBtn" class="hidden">Logout</button>
-  </div>
-</header>
+  <hr>
 
-<!-- RESEARCH SUBNAV -->
-<nav class="subnav">
-  <a id="navOverview" class="active">Overview</a>
-  <a id="navPapers">Published Works</a>
-  <a id="navProfiles">Profiles</a>
-  <a id="navHome">Home</a>
-</nav>
+  <section>
+    <h1>Research Division</h1>
+    <p>
+      The Hillbilly Storm Chasers Research Division conducts independent frontier research at the 
+      intersection of emergent time, informational geometry, nonlinear dynamics, and observer‑dependent 
+      physics. Our work spans the ODIM‑U framework, Quiet‑Scalar Time, Foundry‑based projection‑capacity 
+      models, warp‑field engineering, artificial‑gravity mechanisms, resonant spacetime structures, 
+      volumetric light‑geometry systems, and early‑universe informational cosmology. We develop 
+      open, reproducible simulation engines, theoretical frameworks, and experimental concepts aimed at 
+      understanding how information, geometry, and physical law co‑emerge in finite‑observer systems.
+      All research is governed by the Information‑Bubble Peaceful‑Use License (IBPUL‑X.1), ensuring that 
+      every model, equation, simulation, and derivative work remains exclusively civilian, scientific, 
+      educational, exploratory, or humanitarian in nature.
+    </p>
 
-<div class="container">
+    <h2>License</h2>
+    <p>
+      Information‑Bubble Peaceful‑Use License (IBPUL‑X.1)<br>
+      DOI: <a href="https://doi.org/10.5281/zenodo.19929587" target="_blank">10.5281/zenodo.19929587</a>
+    </p>
 
-  <!-- OVERVIEW -->
-  <section id="overview" class="view">
-    <div class="card">
-      <h1>Research Division</h1>
-      <p>
-        The Hillbilly Storm Chasers Research Division conducts independent frontier research at the 
-        intersection of emergent time, informational geometry, nonlinear dynamics, and observer‑dependent 
-        physics. Our work spans the ODIM‑U framework, Quiet‑Scalar Time, Foundry‑based projection‑capacity 
-        models, warp‑field engineering, artificial‑gravity mechanisms, resonant spacetime structures, 
-        volumetric light‑geometry systems, and early‑universe informational cosmology.
-      </p>
+    <h2>Published Works</h2>
+    <ul>
+  <li><a href="https://doi.org/10.5281/zenodo.19988770" target="_blank">
+    Three‑Dimensional Simulation of Informational Warp‑Bubble Dynamics: A Numerical Exploration of the ODIM‑U / Beardsley Unified Framework (2026)
+  </a></li>
 
-      <p>
-        We develop open, reproducible simulation engines, theoretical frameworks, and experimental concepts 
-        aimed at understanding how information, geometry, and physical law co‑emerge in finite‑observer systems.
-        All research is governed by the Information‑Bubble Peaceful‑Use License (IBPUL‑X.1), ensuring that 
-        every model, equation, simulation, and derivative work remains exclusively civilian, scientific, 
-        educational, exploratory, or humanitarian in nature.
-      </p>
+  <li><a href="https://doi.org/10.5281/zenodo.19864167" target="_blank">
+    Informational Geometry, the 2π‑Hz Resonance, and Warp‑Drive Dynamics Without Exotic Matter (2026)
+  </a></li>
 
-      <h2>License</h2>
-      <p>
-        Information‑Bubble Peaceful‑Use License (IBPUL‑X.1)<br>
-        DOI: <a href="https://doi.org/10.5281/zenodo.19929587" target="_blank">10.5281/zenodo.19929587</a>
-      </p>
-    </div>
+  <li><a href="https://doi.org/10.5281/zenodo.19807411" target="_blank">
+    Holagraph Slab v2.0: Wide‑Footprint, Max‑Stable Volumetric Light Bowl With Full 3D TIM Solidification and STL Export (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19701159" target="_blank">
+    Quiet‑Scalar Control on a 4‑D ODIM‑Foundry Manifold: A Virtual Vehicle–Bubble Simulation (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19531294" target="_blank">
+    The Hillbilly Frontier: The Storm‑Chaser’s Guide to the Observer‑Dependent Universe (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19503559" target="_blank">
+    The Hybrid Capacity–Expansion Framework for Galactic Dynamics (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19476487" target="_blank">
+    The Realization Principle: A Projection‑Capacity Framework for Emergent Geometry, Time, and Physical Law (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19340277" target="_blank">
+    The Stress‑Strain of Spacetime: A Comparative Analysis of Ontological Failure in Observer‑Dependent Metrics (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19261796" target="_blank">
+    Holagraph Slabs: Engineering the Geometry of Empty Space (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19244679" target="_blank">
+    The Boundary‑Regime: A Geometric Reading of CMS UPC Data (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19227817" target="_blank">
+    Storm‑Chaser Physics: The Blackwell Channel and the Emergence of Room‑Temperature Superconductivity (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19198912" target="_blank">
+    The Hillbilly Foundry: How Finite Observers Forge the Universe (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19117110" target="_blank">
+    The Hillbilly TOE Foundry: A Projection‑Capacity Framework for Emergent Time and Observer‑Dependent Physics (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19025713" target="_blank">
+    The Observer‑Dependent Information Metric (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.19013019" target="_blank">
+    The Quiet Scalar Time Framework v2.0 (2026)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.17930970" target="_blank">
+    The Blackwell Information‑Metric Unification (ODIM‑U v1.2) — Relative Entropy Action (2025‑12‑14)
+  </a></li>
+
+  <li><a href="https://doi.org/10.5281/zenodo.18766134" target="_blank">
+    The Blackwell Information‑Metric Unification (ODIM‑U v1.2) — Relative Entropy Action (2025‑02‑20)
+  </a></li>
+</ul>
+
+
+    <h2>External Profiles</h2>
+    <p><a href="https://scholar.google.com/citations?user=lIRJ1CsAAAAJ" target="_blank">Google Scholar – David E. Blackwell</a></p>
+    <p><a href="https://orcid.org/0009-0001-8447-9113" target="_blank">ORCID – David E. Blackwell</a></p>
+    <p><a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu – David Blackwell</a></p>
+    <p><a href="https://github.com/hillbillydave" target="_blank">GitHub – hillbillydave</a></p>
+
+    <p><a href="index.html">Back to Home</a></p>
   </section>
 
-  <!-- PUBLISHED WORKS -->
-  <section id="papers" class="view hidden">
-    <div class="card">
-      <h2>Published Works</h2>
-      <ul>
-        <!-- Your full list preserved exactly -->
-        <li><a href="https://doi.org/10.5281/zenodo.19988770" target="_blank">Three‑Dimensional Simulation of Informational Warp‑Bubble Dynamics (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19864167" target="_blank">Informational Geometry & Warp‑Drive Dynamics Without Exotic Matter (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19807411" target="_blank">Holagraph Slab v2.0 (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19701159" target="_blank">Quiet‑Scalar Control on a 4‑D ODIM‑Foundry Manifold (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19531294" target="_blank">The Hillbilly Frontier (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19503559" target="_blank">Hybrid Capacity–Expansion Framework for Galactic Dynamics (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19476487" target="_blank">The Realization Principle (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19340277" target="_blank">Stress‑Strain of Spacetime (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19261796" target="_blank">Holagraph Slabs (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19244679" target="_blank">The Boundary‑Regime (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19227817" target="_blank">Storm‑Chaser Physics (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19198912" target="_blank">The Hillbilly Foundry (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19117110" target="_blank">The Hillbilly TOE Foundry (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19025713" target="_blank">The Observer‑Dependent Information Metric (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.19013019" target="_blank">Quiet Scalar Time Framework v2.0 (2026)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.17930970" target="_blank">ODIM‑U v1.2 — Relative Entropy Action (2025‑12‑14)</a></li>
-        <li><a href="https://doi.org/10.5281/zenodo.18766134" target="_blank">ODIM‑U v1.2 — Relative Entropy Action (2025‑02‑20)</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PROFILES -->
-  <section id="profiles" class="view hidden">
-    <div class="card">
-      <h2>External Profiles</h2>
-      <p><a href="https://scholar.google.com/citations?user=lIRJ1CsAAAAJ" target="_blank">Google Scholar – David E. Blackwell</a></p>
-      <p><a href="https://orcid.org/0009-0001-8447-9113" target="_blank">ORCID – David E. Blackwell</a></p>
-      <p><a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu – David Blackwell</a></p>
-      <p><a href="https://github.com/hillbillydave" target="_blank">GitHub – hillbillydave</a></p>
-    </div>
-  </section>
-
-  <!-- HOME -->
-  <section id="home" class="view hidden">
-    <div class="card">
-      <h2>Return Home</h2>
-      <p><a href="index.html">Back to Home</a></p>
-    </div>
-  </section>
-
-</div>
-
-<script>
-  /* SUBNAV VIEW SWITCHING */
-  const views = {
-    overview: document.getElementById('overview'),
-    papers: document.getElementById('papers'),
-    profiles: document.getElementById('profiles'),
-    home: document.getElementById('home')
-  };
-
-  const navLinks = {
-    overview: document.getElementById('navOverview'),
-    papers: document.getElementById('navPapers'),
-    profiles: document.getElementById('navProfiles'),
-    home: document.getElementById('navHome')
-  };
-
-  function switchView(name){
-    Object.keys(views).forEach(k=>{
-      views[k].classList.toggle('hidden', k !== name);
-    });
-    Object.keys(navLinks).forEach(k=>{
-      navLinks[k].classList.toggle('active', k === name);
-    });
-  }
-
-  navLinks.overview.onclick = ()=>switchView('overview');
-  navLinks.papers.onclick = ()=>switchView('papers');
-  navLinks.profiles.onclick = ()=>switchView('profiles');
-  navLinks.home.onclick = ()=>switchView('home');
-
-  /* LOGIN SYSTEM */
-  const loginBtn = document.getElementById('loginBtn');
-  const logoutBtn = document.getElementById('logoutBtn');
-
-  loginBtn.onclick = ()=>{
-    const email = prompt("Email:");
-    const pass = prompt("Password:");
-    if(email && pass){
-      localStorage.setItem('hsc_user', email);
-      loginBtn.classList.add('hidden');
-      logoutBtn.classList.remove('hidden');
-    }
-  };
-
-  logoutBtn.onclick = ()=>{
-    localStorage.removeItem('hsc_user');
-    loginBtn.classList.remove('hidden');
-    logoutBtn.classList.add('hidden');
-  };
-
-  (function init(){
-    if(localStorage.getItem('hsc_user')){
-      loginBtn.classList.add('hidden');
-      logoutBtn.classList.remove('hidden');
-    }
-  })();
-</script>
-
-<footer>
-  © 2026 Hillbilly Storm Chasers Research Division — All Rights Reserved
-</footer>
+  <footer>
+    © 2026 Hillbilly Storm Chasers Research Division — All Rights Reserved
+  </footer>
 
 </body>
 </html>
