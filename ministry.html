@@ -5,250 +5,844 @@
   <title>Hillbilly Storm Chasers – Ministry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Basic reset + layout -->
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      background: url('placeholder-background.jpg') center/cover fixed no-repeat, #111;
-      color: #f5f5f5;
-      line-height: 1.6;
+    :root{
+      color-scheme: dark;
+      --bg:#020617;
+      --bg-soft:#020617;
+      --card:#020617;
+      --border:#1f2937;
+      --accent:#fbbf24;
+      --accent-soft:#facc15;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --danger:#f97373;
+      --success:#4ade80;
     }
 
-    header {
-      background: url('placeholder-header.jpg') center/cover no-repeat;
-      padding: 40px 0;
-      text-align: center;
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background: radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);
+      color:var(--text);
+      line-height:1.6;
+      min-height:100vh;
     }
 
-    .header-title {
-      color: #ffd27f;
-      font-size: 2rem;
-      margin: 0;
-      text-shadow: 0 0 6px #000;
+    a{color:var(--accent-soft);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    header{
+      padding:16px 18px 10px;
+      border-bottom:1px solid rgba(15,23,42,.8);
+      background:linear-gradient(135deg,rgba(15,23,42,.96),rgba(8,47,73,.96));
+      position:sticky;
+      top:0;
+      z-index:30;
+      backdrop-filter:blur(10px);
     }
 
-    nav {
-      background: #000;
-      padding: 10px;
-      text-align: center;
-      border-bottom: 1px solid #333;
+    #brand{
+      font-size:18px;
+      font-weight:600;
+      letter-spacing:.04em;
+      color:var(--accent-soft);
+      text-shadow:0 0 10px rgba(0,0,0,.7);
     }
 
-    nav a {
-      color: #ffb347;
-      margin: 0 6px;
-      text-decoration: none;
+    header .row{
+      display:flex;
+      gap:8px;
+      margin-top:8px;
+      align-items:center;
+      justify-content:flex-end;
     }
 
-    nav a:hover {
-      color: #ffd27f;
+    select,button,input,textarea{
+      background:#020617;
+      color:var(--text);
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:13px;
     }
 
-    .page-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem 3rem;
-      background: rgba(0, 0, 0, 0.65);
-      border-radius: 8px;
-      margin-top: 20px;
+    button{
+      cursor:pointer;
+      background:linear-gradient(135deg,#fbbf24,#f97316);
+      border:none;
+      color:#111827;
+      font-weight:600;
+      box-shadow:0 0 12px rgba(251,191,36,.35);
+      transition:transform .08s ease,box-shadow .08s ease,filter .08s ease;
+    }
+    button:hover{
+      transform:translateY(-1px);
+      box-shadow:0 0 16px rgba(251,191,36,.5);
+      filter:brightness(1.05);
+    }
+    button.small{
+      padding:4px 10px;
+      font-size:12px;
+      border-radius:999px;
+      box-shadow:none;
     }
 
-    h1, h2, h3 {
-      color: #ffd27f;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
+    .hidden{display:none !important;}
+
+    .container{
+      max-width:960px;
+      margin:0 auto;
+      padding:18px 18px 40px;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 1rem;
+    .hero{
+      margin-top:10px;
+      padding:22px 18px 24px;
+      border-radius:18px;
+      border:1px solid rgba(55,65,81,.9);
+      background:
+        radial-gradient(circle at top left,rgba(251,191,36,.12),transparent 55%),
+        radial-gradient(circle at bottom right,rgba(59,130,246,.18),transparent 60%),
+        linear-gradient(145deg,rgba(15,23,42,.98),rgba(3,7,18,.98));
+      box-shadow:0 18px 45px rgba(0,0,0,.75);
+      position:relative;
+      overflow:hidden;
     }
 
-    p {
-      margin: 0.4rem 0;
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:
+        radial-gradient(circle at 10% 0,rgba(251,191,36,.12),transparent 55%),
+        radial-gradient(circle at 90% 100%,rgba(59,130,246,.16),transparent 55%);
+      opacity:.9;
+      mix-blend-mode:screen;
+      pointer-events:none;
     }
 
-    .tagline {
-      text-align: center;
-      font-style: italic;
-      color: #ffefc2;
-      margin-bottom: 2rem;
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
     }
 
-    .section {
-      margin-bottom: 1.8rem;
-      padding: 1rem;
-      background: #1a1a1a;
-      border-radius: 6px;
-      border: 1px solid #333;
+    .hero-text{
+      flex:1 1 260px;
     }
 
-    ul {
-      margin: 0.4rem 0 0.4rem 1.2rem;
-      padding: 0;
+    .hero-kicker{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--muted);
+      margin-bottom:6px;
     }
 
-    li {
-      margin: 0.2rem 0;
+    .hero h1{
+      font-size:26px;
+      line-height:1.2;
+      margin-bottom:8px;
     }
 
-    .contact-label {
-      font-weight: bold;
-      display: block;
-      margin-top: 0.4rem;
+    .hero h1 span{
+      color:var(--accent-soft);
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
-      margin-top: 40px;
+    .hero-tagline{
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:6px;
+    }
+
+    .hero-note{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    .hero-badge{
+      flex:0 0 220px;
+      border-radius:16px;
+      border:1px solid rgba(55,65,81,.9);
+      background:rgba(15,23,42,.9);
+      padding:10px 12px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .hero-badge h3{
+      font-size:13px;
+      margin-bottom:4px;
+      color:var(--accent-soft);
+    }
+
+    .hero-badge ul{
+      list-style:none;
+      margin-top:4px;
+    }
+    .hero-badge li{
+      margin:2px 0;
+    }
+
+    nav.container{
+      margin-top:18px;
+      padding:10px 10px 8px;
+      border-radius:999px;
+      border:1px solid rgba(31,41,55,.9);
+      background:rgba(15,23,42,.96);
+      display:flex;
+      gap:6px;
+      justify-content:space-between;
+      position:sticky;
+      top:82px;
+      z-index:25;
+      backdrop-filter:blur(10px);
+    }
+
+    nav a{
+      flex:1;
+      text-align:center;
+      padding:8px 6px;
+      font-size:13px;
+      border-radius:999px;
+      color:var(--muted);
+      text-decoration:none;
+      border:1px solid transparent;
+      transition:background .12s ease,color .12s ease,border-color .12s ease;
+    }
+
+    nav a.active{
+      background:radial-gradient(circle at top,#fbbf24,#f97316);
+      color:#111827;
+      border-color:rgba(15,23,42,.9);
+      font-weight:600;
+      box-shadow:0 0 14px rgba(251,191,36,.45);
+    }
+
+    .view{margin-top:18px;}
+    .card{
+      background:rgba(15,23,42,.96);
+      border-radius:16px;
+      border:1px solid rgba(31,41,55,.9);
+      padding:14px 14px 16px;
+      margin-bottom:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.7);
+    }
+
+    h2{
+      font-size:18px;
+      margin-bottom:6px;
+      color:var(--accent-soft);
+    }
+    h3{
+      font-size:14px;
+      margin:8px 0 4px;
+    }
+
+    p{font-size:14px;margin:4px 0;color:var(--text);}
+    .small{font-size:12px;color:var(--muted);}
+
+    .row{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    ul{margin-left:16px;margin-top:4px;}
+    li{margin:2px 0;}
+
+    textarea{
+      border-radius:10px;
+      min-height:80px;
+      resize:vertical;
+      padding:8px 10px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(55,65,81,.9);
+      font-size:11px;
+      color:var(--muted);
+      background:rgba(15,23,42,.9);
+    }
+
+    footer{
+      text-align:center;
+      padding:16px 10px 26px;
+      font-size:12px;
+      color:var(--muted);
+      border-top:1px solid rgba(15,23,42,.9);
+      margin-top:10px;
+      background:rgba(3,7,18,.98);
+    }
+
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:80px;
+      transform:translateX(-50%);
+      background:#111827;
+      color:var(--text);
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(55,65,81,.9);
+      font-size:12px;
+      box-shadow:0 10px 30px rgba(0,0,0,.8);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .15s ease,transform .15s ease;
+      z-index:80;
+    }
+    .toast.show{
+      opacity:1;
+      transform:translateX(-50%) translateY(-4px);
+    }
+
+    /* Mobile-first improvements */
+    @media (max-width: 700px){
+      nav.container{
+        position:fixed;
+        left:0;
+        right:0;
+        bottom:0;
+        top:auto;
+        z-index:40;
+        background:rgba(15,23,42,.96);
+        border-radius:0;
+        border-top:1px solid rgba(51,65,85,.7);
+        border-left:none;
+        border-right:none;
+        padding:8px 10px;
+        max-width:none;
+      }
+      nav a{
+        flex:1;
+        text-align:center;
+        padding:10px 6px;
+        font-size:12px;
+        border-radius:12px;
+      }
+      .container{
+        padding:14px 14px 80px;
+      }
+      header{
+        padding:10px 12px;
+      }
+      #brand{
+        font-size:15px;
+      }
+      button,input,select,textarea{
+        width:100%;
+      }
+      .hero-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .hero-badge{
+        width:100%;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1 class="header-title">Hillbilly Storm Chasers – Ministry</h1>
-  </header>
+<header>
+  <div id="brand">Hillbilly Storm Chasers Ministry</div>
+  <div class="row">
+    <button id="loginBtn">Login</button>
+    <button id="logoutBtn" class="hidden">Logout</button>
+  </div>
+</header>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="gallery.html">Gallery</a> |
-    <a href="research.html">Research Division</a> |
-    <a href="support.html">Support</a> |
-    <a href="contact.html">Contact</a> |
-    <a href="store.html">Store</a> |
-    <a href="merch.html">Mission</a> |
-    <a href="services.html">Services</a> |
-    <a href="ministry.html">Ministry</a> |
-    <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
-    <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
-    <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
-  </nav>
+<div class="container">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-kicker">Simple • Honest • Steady</div>
+        <h1>Ministry for <span>real people</span>, real moments, and real life.</h1>
+        <p class="hero-tagline">
+          A simple, honest ministry for real people, real moments, and real life — the kind of place
+          where you don’t have to pretend to be stronger than you feel, and where kindness, patience,
+          and compassion still mean something. This is about showing up for folks, offering a steady
+          hand when life gets heavy, and reminding people they’re not walking through this world alone.
+        </p>
+        <p class="hero-tagline">
+          Sometimes all a person needs is someone steady to talk to, someone who won’t rush them or
+          make them feel small. That’s what I try to offer here: a calm place, a kind word, and a
+          little compassion when it’s needed most.
+        </p>
+        <div class="hero-actions">
+          <button id="heroContactBtn">Request Ministry</button>
+          <button id="heroNotesBtn" class="small">Read Ministry Notes</button>
+        </div>
+        <p class="hero-note">
+          Whether you need a ceremony, a blessing, a memorial, or just someone to sit with and talk things through,
+          I’m here for that. This page simply lays out what I offer and how to reach me, so when life brings you
+          a moment that needs a steady hand or a kind voice, you know where to find one.
+        </p>
+      </div>
 
-  <!-- PAGE CONTENT -->
-  <div class="page-wrapper">
-
-    <div class="tagline">
-     A simple, honest ministry for real people, real moments, and real life — the kind of place where you don’t have to pretend to be stronger than you feel, 
-      and where kindness, patience, and compassion still mean something. This is about showing up for folks, offering a steady hand when life gets heavy, 
-      and reminding people that they’re not walking through this world alone.
-
+      <div class="hero-badge">
+        <h3>What this ministry is about</h3>
+        <ul>
+          <li>• Showing up when life gets heavy</li>
+          <li>• Speaking plain, with respect and care</li>
+          <li>• Ceremonies, blessings, and memorials</li>
+          <li>• Quiet support, not pressure or judgment</li>
+        </ul>
+      </div>
     </div>
+  </section>
+</div>
 
-    <!-- 1. Welcome -->
-    <div class="section">
+<!-- NAV -->
+<nav class="container" aria-label="Primary">
+  <a id="navHome" href="#home" class="active">Home</a>
+  <a id="navNotes" href="#notes">Ministry Notes</a>
+  <a id="navServices" href="#services">Services</a>
+  <a id="navContact" href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+  <!-- HOME -->
+  <section id="home" class="view">
+    <div class="card">
       <h2>Welcome</h2>
-     <p>
-     This ministry is built on honesty, respect, and being there for folks when life gets heavy.
-     I don’t believe in pressure or judgment — just listening, understanding, and meeting people where they are.
-     </p>
-
-    <p>
-    Sometimes all a person needs is someone steady to talk to, someone who won’t rush them or make them feel small.
-    That’s what I try to offer here: a calm place, a kind word, and a little compassion when it’s needed most.
-     </p>
-
       <p>
-     Whether you need a ceremony, a blessing, a memorial, or just someone to sit with and talk things through,
-     I’m here for that. You don’t have to show up perfect or have everything figured out.
-     </p>
-
-     <p>
-      This page simply lays out what I offer and how to reach me, so when life brings you a moment that needs
-      a steady hand or a kind voice, you know where to find one.
-     </p>
-
+        This ministry is built on honesty, respect, and being there for folks when life gets heavy.
+        I don’t believe in pressure or judgment — just listening, understanding, and meeting people where they are.
+      </p>
+      <p>
+        If you’re going through something, facing a hard season, or standing at one of those turning points in life,
+        you don’t have to walk it alone. I can’t fix everything, but I can stand with you in it, speak plainly,
+        and help you find a little steadiness again.
+      </p>
+      <p class="small">
+        You don’t have to show up perfect or have everything figured out. Just show up as you are.
+      </p>
     </div>
 
-    <!-- 2. Ministry Services -->
-    <div class="section">
-      <h2>Ministry Services</h2>
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0">Today’s Thought</h2>
+        <span class="pill">Simple words for a heavy world</span>
+      </div>
+      <p id="verse" class="small">
+        Strength isn’t loud. It’s the quiet choice to stand back up when no one’s watching.
+      </p>
+      <p id="reflection" class="small">
+        Some days, “getting through” is enough. You don’t have to impress anyone. Just keep taking the next honest step.
+      </p>
+      <div class="row" style="justify-content:space-between;margin-top:6px">
+        <button id="verseRefreshBtn" class="small">Show another thought</button>
+        <span id="verseStamp" class="small"></span>
+      </div>
+    </div>
 
+    <div class="card">
+      <h2>For Folks Who Are Hurting</h2>
+      <p>
+        If you’re carrying something heavy — grief, regret, worry, or just plain exhaustion — this is a place where
+        you don’t have to pretend you’re fine. You’re allowed to be tired. You’re allowed to be honest.
+      </p>
+      <p>
+        I won’t promise easy answers. What I can offer is time, attention, and a steady voice that doesn’t run when
+        things get uncomfortable.
+      </p>
+    </div>
+  </section>
+
+  <!-- MINISTRY NOTES -->
+  <section id="notes" class="view hidden">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0">Ministry Notes</h2>
+        <span class="pill">Written in plain language, for real life</span>
+      </div>
+      <p class="small">
+        These are short reflections meant to steady the heart a little. Nothing fancy — just simple words
+        that might land where they’re needed.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>On Kindness</h3>
+      <p>
+        Kindness doesn’t have to be big to matter — sometimes it’s the quiet stuff that helps most.
+        A short message, a small favor, a patient answer instead of a sharp one. Most people are carrying
+        more than they say out loud. A little gentleness can go a long way.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>On Hard Seasons</h3>
+      <p>
+        Hard seasons don’t last forever, even when they feel like they will. The days blur together,
+        and it’s easy to think nothing will ever change. But you’re changing in the middle of it —
+        learning patience, learning endurance, learning how to keep going when it would be easier to quit.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>On Showing Up</h3>
+      <p>
+        Showing up for someone doesn’t always mean having the right words. Sometimes it just means being there,
+        not rushing them, not trying to fix everything in five minutes. Being present is its own kind of ministry.
+      </p>
+    </div>
+
+    <div id="adminNotesCard" class="card hidden">
+      <h3>Add a Private Note (Admin)</h3>
+      <p class="small">
+        This doesn’t publish anywhere else — it just lets you jot down thoughts or ideas while you’re on the site.
+      </p>
+      <textarea id="adminNoteText" placeholder="Write a short note to yourself here..."></textarea>
+      <div class="row" style="margin-top:8px">
+        <button id="saveNoteBtn" class="small">Save Note</button>
+        <span id="saveNoteStatus" class="small"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="view hidden">
+    <div class="card">
+      <h2>Ministry Services</h2>
+      <p>
+        Everything here is meant to be simple, respectful, and personal. No big show, no pressure — just
+        honest service for important moments in people’s lives.
+      </p>
+    </div>
+
+    <div class="card">
       <h3>Weddings & Ceremonies</h3>
       <ul>
         <li>Simple, meaningful weddings</li>
         <li>Outdoor and rural ceremonies</li>
-        <li>Custom vows if requested</li>
+        <li>Custom wording if requested</li>
       </ul>
+    </div>
 
+    <div class="card">
       <h3>Funerals & Memorials</h3>
       <ul>
         <li>Graveside services</li>
         <li>Memorial readings</li>
-        <li>Family‑centered, respectful, and calm</li>
+        <li>Family‑centered, calm, and respectful</li>
       </ul>
+    </div>
 
+    <div class="card">
       <h3>Blessings & Dedications</h3>
       <ul>
         <li>Home blessings</li>
         <li>Vehicle blessings</li>
         <li>Family or personal dedications</li>
       </ul>
+    </div>
 
+    <div class="card">
       <h3>Spiritual Support</h3>
       <ul>
-        <li>Someone to talk to</li>
-        <li>Personal guidance</li>
+        <li>Someone to talk to when life gets heavy</li>
         <li>Quiet, grounded conversation</li>
+        <li>Plain talk, not performance</li>
       </ul>
     </div>
+  </section>
 
-    <!-- 3. Ministry Notes -->
-    <div class="section">
-      <h2>Ministry Notes</h2>
-      <p>
-        From time to time, I’ll share short reflections, thoughts, or messages here.
-        Nothing fancy — just simple words meant to help or encourage.
-      </p>
-
-      <ul>
-        <li><strong>•</strong> Kindness doesn’t cost you anything, but it can change someone’s whole day.</li>
-        <li><strong>•</strong> Hard seasons don’t last forever — but the strength you build in them does.</li>
-        <li><strong>•</strong> Showing up for someone, even in a small way, can be the thing that steadies them.</li>
-      </ul>
-
-     
-    </div>
-
-    <!-- 4. Testimonies -->
-    <div class="section">
-      <h2>Testimonies</h2>
-      <p>
-        If someone wants to share a kind word about a ceremony or support they received,
-        this is where those stories will go.
-      </p>
-      <p>
-        Testimonies help others know what to expect — simple, honest, and real.
-      </p>
-    </div>
-
-    <!-- 5. Contact -->
-    <div class="section">
+  <!-- CONTACT -->
+  <section id="contact" class="view hidden">
+    <div class="card">
       <h2>Contact</h2>
-      <p>If you’d like to request a ceremony or talk about something personal, here’s what to send:</p>
-
+      <p>
+        If you’d like to request a ceremony or talk about something personal, here’s what to send:
+      </p>
       <ul>
         <li><strong>Name</strong></li>
         <li><strong>What you need</strong> (wedding, memorial, blessing, support, etc.)</li>
         <li><strong>Date or timeframe</strong></li>
         <li><strong>Any details you want to share</strong></li>
       </ul>
-
       <p>Email: <strong>hillbillystormchasers@gmail.com</strong></p>
+      <p class="small">
+        You can also mention “Ministry Page” in the subject line so I know where you came from.
+      </p>
     </div>
+  </section>
+</div>
 
+<!-- LOGIN MODAL -->
+<div id="authModal" class="hidden" style="position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;z-index:50">
+  <div style="background:#020617;padding:20px;border-radius:16px;width:320px;border:1px solid rgba(51,65,85,.8);box-shadow:0 18px 40px rgba(0,0,0,.9)">
+    <h3 id="authTitle" style="margin:0 0 10px">Account</h3>
+    <div class="small" id="authNote" style="margin-bottom:8px">
+      This login is just for you to manage notes and admin tools on this site.
+    </div>
+    <label class="small" for="email">Email</label>
+    <input id="email" placeholder="Email" autocomplete="email" />
+    <label class="small" for="password" style="margin-top:6px;display:block;">Password</label>
+    <input id="password" type="password" placeholder="Password" autocomplete="current-password" />
+    <div class="row" style="margin-top:10px">
+      <button id="doLoginBtn">Login</button>
+      <button id="closeAuthBtn" class="small">Close</button>
+    </div>
+    <button id="forgotBtn" class="small" style="margin-top:8px;width:100%">Forgot password? (local only)</button>
   </div>
+</div>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Hillbilly Storm Chasers — Ministry
-  </footer>
+<!-- ADMIN PASSCODE MODAL -->
+<div id="adminModal" class="hidden" style="position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;z-index:60">
+  <div style="background:#020617;padding:20px;border-radius:16px;width:320px;border:1px solid rgba(51,65,85,.8);box-shadow:0 18px 40px rgba(0,0,0,.9)">
+    <h3 style="margin:0 0 10px">Admin Verification</h3>
+    <div class="small" id="admVerifyTip" style="margin-bottom:8px">
+      Enter your private passcode to unlock admin tools on this device.
+    </div>
+    <label class="small" for="adminCode">Admin passcode</label>
+    <input id="adminCode" inputmode="numeric" placeholder="4–10 digits" />
+    <div class="row" style="margin-top:10px">
+      <button id="verifyAdminBtn">Verify</button>
+      <button id="cancelAdminBtn" class="small">Cancel</button>
+    </div>
+    <div class="small" id="admVerifyNote" style="margin-top:10px"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script>
+  // If you ever want to hook this to a backend, you can point this to a real API.
+  const API = "https://script.google.com/macros/s/EXAMPLE/exec";
+
+  let user = null;
+  let isAdmin = false;
+
+  const views = {
+    home: document.getElementById('home'),
+    notes: document.getElementById('notes'),
+    services: document.getElementById('services'),
+    contact: document.getElementById('contact')
+  };
+
+  const navLinks = {
+    home: document.getElementById('navHome'),
+    notes: document.getElementById('navNotes'),
+    services: document.getElementById('navServices'),
+    contact: document.getElementById('navContact')
+  };
+
+  const loginBtn = document.getElementById('loginBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const authModal = document.getElementById('authModal');
+  const adminModal = document.getElementById('adminModal');
+  const emailInput = document.getElementById('email');
+  const passInput = document.getElementById('password');
+  const authNote = document.getElementById('authNote');
+  const adminCodeInput = document.getElementById('adminCode');
+  const admVerifyNote = document.getElementById('admVerifyNote');
+  const adminNotesCard = document.getElementById('adminNotesCard');
+  const toastEl = document.getElementById('toast');
+
+  const verseEl = document.getElementById('verse');
+  const reflectionEl = document.getElementById('reflection');
+  const verseStampEl = document.getElementById('verseStamp');
+  const verseRefreshBtn = document.getElementById('verseRefreshBtn');
+
+  const heroContactBtn = document.getElementById('heroContactBtn');
+  const heroNotesBtn = document.getElementById('heroNotesBtn');
+
+  const saveNoteBtn = document.getElementById('saveNoteBtn');
+  const adminNoteText = document.getElementById('adminNoteText');
+  const saveNoteStatus = document.getElementById('saveNoteStatus');
+
+  const doLoginBtn = document.getElementById('doLoginBtn');
+  const closeAuthBtn = document.getElementById('closeAuthBtn');
+  const forgotBtn = document.getElementById('forgotBtn');
+  const verifyAdminBtn = document.getElementById('verifyAdminBtn');
+  const cancelAdminBtn = document.getElementById('cancelAdminBtn');
+
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    setTimeout(()=>toastEl.classList.remove('show'), 2200);
+  }
+
+  function switchView(name){
+    Object.keys(views).forEach(k=>{
+      views[k].classList.toggle('hidden', k !== name);
+    });
+    Object.keys(navLinks).forEach(k=>{
+      navLinks[k].classList.toggle('active', k === name);
+    });
+  }
+
+  navLinks.home.addEventListener('click', e=>{e.preventDefault();switchView('home');});
+  navLinks.notes.addEventListener('click', e=>{e.preventDefault();switchView('notes');});
+  navLinks.services.addEventListener('click', e=>{e.preventDefault();switchView('services');});
+  navLinks.contact.addEventListener('click', e=>{e.preventDefault();switchView('contact');});
+
+  heroContactBtn.addEventListener('click', ()=>switchView('contact'));
+  heroNotesBtn.addEventListener('click', ()=>switchView('notes'));
+
+  function openAuth(){
+    authModal.classList.remove('hidden');
+    emailInput.focus();
+  }
+  function closeAuth(){
+    authModal.classList.add('hidden');
+  }
+
+  function openAdminModal(){
+    adminModal.classList.remove('hidden');
+    adminCodeInput.value = "";
+    admVerifyNote.textContent = "";
+    adminCodeInput.focus();
+  }
+  function closeAdminModal(){
+    adminModal.classList.add('hidden');
+  }
+
+  loginBtn.addEventListener('click', openAuth);
+  closeAuthBtn.addEventListener('click', closeAuth);
+
+  logoutBtn.addEventListener('click', ()=>{
+    user = null;
+    isAdmin = false;
+    localStorage.removeItem('hsc_ministry_user');
+    localStorage.removeItem('hsc_ministry_admin');
+    loginBtn.classList.remove('hidden');
+    logoutBtn.classList.add('hidden');
+    adminNotesCard.classList.add('hidden');
+    showToast("Logged out on this device.");
+  });
+
+  doLoginBtn.addEventListener('click', ()=>{
+    const email = emailInput.value.trim();
+    const pass = passInput.value.trim();
+    if(!email || !pass){
+      authNote.textContent = "Please enter both email and password (local only).";
+      return;
+    }
+    user = { email };
+    localStorage.setItem('hsc_ministry_user', JSON.stringify(user));
+    loginBtn.classList.add('hidden');
+    logoutBtn.classList.remove('hidden');
+    authNote.textContent = "Login saved on this device only.";
+    showToast("Logged in (local).");
+    closeAuth();
+    openAdminModal();
+  });
+
+  forgotBtn.addEventListener('click', ()=>{
+    showToast("This login is local only. You can just pick a new password.");
+  });
+
+  verifyAdminBtn.addEventListener('click', ()=>{
+    const code = adminCodeInput.value.trim();
+    if(code.length < 4){
+      admVerifyNote.textContent = "Passcode should be at least 4 digits.";
+      admVerifyNote.style.color = "var(--danger)";
+      return;
+    }
+    isAdmin = true;
+    localStorage.setItem('hsc_ministry_admin', "1");
+    adminNotesCard.classList.remove('hidden');
+    admVerifyNote.textContent = "Admin tools unlocked on this device.";
+    admVerifyNote.style.color = "var(--success)";
+    showToast("Admin tools unlocked.");
+    setTimeout(closeAdminModal, 700);
+  });
+
+  cancelAdminBtn.addEventListener('click', closeAdminModal);
+
+  // Local note save
+  saveNoteBtn.addEventListener('click', ()=>{
+    const txt = adminNoteText.value.trim();
+    localStorage.setItem('hsc_ministry_note', txt);
+    saveNoteStatus.textContent = "Saved locally.";
+    setTimeout(()=>saveNoteStatus.textContent="", 1500);
+  });
+
+  // Simple rotating thoughts
+  const thoughts = [
+    {
+      verse: "Strength isn’t loud. It’s the quiet choice to stand back up when no one’s watching.",
+      reflection: "Some days, “getting through” is enough. You don’t have to impress anyone. Just keep taking the next honest step."
+    },
+    {
+      verse: "Kindness doesn’t have to be big to matter — sometimes it’s the quiet stuff that helps most.",
+      reflection: "Most people are carrying more than they say out loud. A small bit of patience can ease a lot of weight."
+    },
+    {
+      verse: "Hard seasons don’t last forever, even when they feel like they will.",
+      reflection: "You’re building strength you can’t see yet. One day you’ll look back and realize you made it through what once felt impossible."
+    },
+    {
+      verse: "Showing up is its own kind of ministry.",
+      reflection: "You don’t always need the right words. Sometimes being there is the thing that makes the difference."
+    }
+  ];
+
+  function setThought(idx){
+    const t = thoughts[idx];
+    verseEl.textContent = t.verse;
+    reflectionEl.textContent = t.reflection;
+    verseStampEl.textContent = "Last updated: " + new Date().toLocaleString();
+  }
+
+  let currentThought = 0;
+  setThought(currentThought);
+
+  verseRefreshBtn.addEventListener('click', ()=>{
+    currentThought = (currentThought + 1) % thoughts.length;
+    setThought(currentThought);
+  });
+
+  // Restore local state
+  (function init(){
+    const savedUser = localStorage.getItem('hsc_ministry_user');
+    if(savedUser){
+      try{
+        user = JSON.parse(savedUser);
+        loginBtn.classList.add('hidden');
+        logoutBtn.classList.remove('hidden');
+      }catch(e){}
+    }
+    const savedAdmin = localStorage.getItem('hsc_ministry_admin');
+    if(savedAdmin === "1"){
+      isAdmin = true;
+      adminNotesCard.classList.remove('hidden');
+    }
+    const savedNote = localStorage.getItem('hsc_ministry_note');
+    if(savedNote){
+      adminNoteText.value = savedNote;
+    }
+  })();
+</script>
+
+<footer>
+  © 2026 Hillbilly Storm Chasers — Ministry • Built simple on purpose.
+</footer>
 
 </body>
 </html>
