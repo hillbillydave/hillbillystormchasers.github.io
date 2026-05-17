@@ -5,12 +5,10 @@
   <title>Hillbilly Storm Chasers – Ministry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Basic reset + layout -->
   <style>
     :root{
       color-scheme: dark;
       --bg:#020617;
-      --bg-soft:#020617;
       --card:#020617;
       --border:#1f2937;
       --accent:#fbbf24;
@@ -20,29 +18,48 @@
       --danger:#f97373;
       --success:#4ade80;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     body{
-      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background: radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);
       color:var(--text);
       line-height:1.6;
       min-height:100vh;
     }
-
     a{color:var(--accent-soft);text-decoration:none}
     a:hover{text-decoration:underline}
 
+    /* TOP SITE-WIDE NAV */
+    .site-nav{
+      background:#020617;
+      border-bottom:1px solid rgba(31,41,55,.9);
+      padding:8px 10px;
+      text-align:center;
+      font-size:13px;
+      position:sticky;
+      top:0;
+      z-index:40;
+    }
+    .site-nav a{
+      color:var(--muted);
+      margin:0 4px;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .site-nav a:hover{
+      color:var(--accent-soft);
+      text-decoration:underline;
+    }
+
     header{
-      padding:16px 18px 10px;
+      padding:12px 18px 10px;
       border-bottom:1px solid rgba(15,23,42,.8);
       background:linear-gradient(135deg,rgba(15,23,42,.96),rgba(8,47,73,.96));
       position:sticky;
-      top:0;
+      top:32px;
       z-index:30;
       backdrop-filter:blur(10px);
     }
-
     #brand{
       font-size:18px;
       font-weight:600;
@@ -50,7 +67,6 @@
       color:var(--accent-soft);
       text-shadow:0 0 10px rgba(0,0,0,.7);
     }
-
     header .row{
       display:flex;
       gap:8px;
@@ -67,7 +83,6 @@
       padding:6px 10px;
       font-size:13px;
     }
-
     button{
       cursor:pointer;
       background:linear-gradient(135deg,#fbbf24,#f97316);
@@ -88,7 +103,6 @@
       border-radius:999px;
       box-shadow:none;
     }
-
     .hidden{display:none !important;}
 
     .container{
@@ -110,7 +124,6 @@
       position:relative;
       overflow:hidden;
     }
-
     .hero::before{
       content:"";
       position:absolute;
@@ -122,7 +135,6 @@
       mix-blend-mode:screen;
       pointer-events:none;
     }
-
     .hero-inner{
       position:relative;
       z-index:1;
@@ -132,11 +144,7 @@
       align-items:center;
       justify-content:space-between;
     }
-
-    .hero-text{
-      flex:1 1 260px;
-    }
-
+    .hero-text{flex:1 1 260px;}
     .hero-kicker{
       font-size:12px;
       text-transform:uppercase;
@@ -144,36 +152,28 @@
       color:var(--muted);
       margin-bottom:6px;
     }
-
     .hero h1{
       font-size:26px;
       line-height:1.2;
       margin-bottom:8px;
     }
-
-    .hero h1 span{
-      color:var(--accent-soft);
-    }
-
+    .hero h1 span{color:var(--accent-soft);}
     .hero-tagline{
       font-size:14px;
       color:var(--muted);
       margin-bottom:10px;
     }
-
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
       gap:8px;
       margin-top:6px;
     }
-
     .hero-note{
       font-size:12px;
       color:var(--muted);
       margin-top:6px;
     }
-
     .hero-badge{
       flex:0 0 220px;
       border-radius:16px;
@@ -183,22 +183,16 @@
       font-size:12px;
       color:var(--muted);
     }
-
     .hero-badge h3{
       font-size:13px;
       margin-bottom:4px;
       color:var(--accent-soft);
     }
+    .hero-badge ul{list-style:none;margin-top:4px;}
+    .hero-badge li{margin:2px 0;}
 
-    .hero-badge ul{
-      list-style:none;
-      margin-top:4px;
-    }
-    .hero-badge li{
-      margin:2px 0;
-    }
-
-    nav.container{
+    /* MINISTRY SUB-NAV */
+    nav.subnav{
       margin-top:18px;
       padding:10px 10px 8px;
       border-radius:999px;
@@ -212,8 +206,7 @@
       z-index:25;
       backdrop-filter:blur(10px);
     }
-
-    nav a{
+    nav.subnav a{
       flex:1;
       text-align:center;
       padding:8px 6px;
@@ -224,8 +217,7 @@
       border:1px solid transparent;
       transition:background .12s ease,color .12s ease,border-color .12s ease;
     }
-
-    nav a.active{
+    nav.subnav a.active{
       background:radial-gradient(circle at top,#fbbf24,#f97316);
       color:#111827;
       border-color:rgba(15,23,42,.9);
@@ -242,37 +234,19 @@
       margin-bottom:14px;
       box-shadow:0 10px 30px rgba(0,0,0,.7);
     }
-
-    h2{
-      font-size:18px;
-      margin-bottom:6px;
-      color:var(--accent-soft);
-    }
-    h3{
-      font-size:14px;
-      margin:8px 0 4px;
-    }
-
+    h2{font-size:18px;margin-bottom:6px;color:var(--accent-soft);}
+    h3{font-size:14px;margin:8px 0 4px;}
     p{font-size:14px;margin:4px 0;color:var(--text);}
     .small{font-size:12px;color:var(--muted);}
-
-    .row{
-      display:flex;
-      gap:8px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
     ul{margin-left:16px;margin-top:4px;}
     li{margin:2px 0;}
-
     textarea{
       border-radius:10px;
       min-height:80px;
       resize:vertical;
       padding:8px 10px;
     }
-
     .pill{
       display:inline-flex;
       align-items:center;
@@ -317,9 +291,8 @@
       transform:translateX(-50%) translateY(-4px);
     }
 
-    /* Mobile-first improvements */
-    @media (max-width: 700px){
-      nav.container{
+    @media (max-width:700px){
+      nav.subnav{
         position:fixed;
         left:0;
         right:0;
@@ -334,36 +307,39 @@
         padding:8px 10px;
         max-width:none;
       }
-      nav a{
+      nav.subnav a{
         flex:1;
         text-align:center;
         padding:10px 6px;
         font-size:12px;
         border-radius:12px;
       }
-      .container{
-        padding:14px 14px 80px;
-      }
-      header{
-        padding:10px 12px;
-      }
-      #brand{
-        font-size:15px;
-      }
-      button,input,select,textarea{
-        width:100%;
-      }
-      .hero-inner{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-      .hero-badge{
-        width:100%;
-      }
+      .container{padding:14px 14px 80px;}
+      header{padding:10px 12px;}
+      #brand{font-size:15px;}
+      button,input,select,textarea{width:100%;}
+      .hero-inner{flex-direction:column;align-items:flex-start;}
+      .hero-badge{width:100%;}
     }
   </style>
 </head>
 <body>
+
+<!-- SITE-WIDE NAV -->
+<nav class="site-nav">
+  <a href="index.html">Home</a> |
+  <a href="gallery.html">Gallery</a> |
+  <a href="research.html">Research Division</a> |
+  <a href="support.html">Support</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="store.html">Store</a> |
+  <a href="merch.html">Mission</a> |
+  <a href="services.html">Services</a> |
+  <a href="ministry.html">Ministry</a> |
+  <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
+  <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
+  <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
+</nav>
 
 <header>
   <div id="brand">Hillbilly Storm Chasers Ministry</div>
@@ -415,10 +391,11 @@
   </section>
 </div>
 
-<!-- NAV -->
-<nav class="container" aria-label="Primary">
+<!-- MINISTRY SUB-NAV -->
+<nav class="subnav" aria-label="Ministry navigation">
   <a id="navHome" href="#home" class="active">Home</a>
-  <a id="navNotes" href="#notes">Ministry Notes</a>
+  <a id="navNotes" href="#notes">Notes</a>
+  <a id="navNews" href="#news">News</a>
   <a id="navServices" href="#services">Services</a>
   <a id="navContact" href="#contact">Contact</a>
 </nav>
@@ -521,6 +498,59 @@
         <button id="saveNoteBtn" class="small">Save Note</button>
         <span id="saveNoteStatus" class="small"></span>
       </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" class="view hidden">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0">Ministry News</h2>
+        <span class="pill">Updates, changes, and new offerings</span>
+      </div>
+      <p class="small">
+        This is where I share simple updates about what I’m offering, schedule changes, and new ways I’m trying
+        to show up for folks. Nothing flashy — just clear information in plain language.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Outdoor Blessings Now Available</h3>
+      <p class="small">Posted: <span id="newsDate1"></span></p>
+      <p>
+        Sometimes folks just need a quiet moment under an open sky. Starting this month, I’ll be offering simple
+        outdoor blessings for families, individuals, and anyone walking through a heavy season.
+      </p>
+      <p>
+        Nothing formal — just a calm space, a few steady words, and a chance to breathe. If you’d like to set
+        something up, reach out with a day, a general time, and where you’d like to meet.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Memorial Services for Small Families</h3>
+      <p class="small">Posted: <span id="newsDate2"></span></p>
+      <p>
+        Not every family wants a big service. If you need something small, personal, and respectful, I’m here for that.
+        We can meet at the graveside, at home, or wherever feels right for you and your people.
+      </p>
+      <p>
+        My goal is to keep things calm, grounded, and focused on the person you’re remembering — not on a performance.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>New Ministry Notes Coming Weekly</h3>
+      <p class="small">Posted: <span id="newsDate3"></span></p>
+      <p>
+        I’ll be adding new reflections each week — short, honest thoughts meant to steady the heart a little.
+        Life gets loud. Folks get tired. And sometimes all a person needs is a few simple words that help them
+        find their footing again.
+      </p>
+      <p>
+        These notes aren’t sermons or speeches — just real thoughts for real people, written the same way I’d talk
+        to someone sitting across the table from me. If even one of them lands where it’s needed, then it’s worth writing.
+      </p>
     </div>
   </section>
 
@@ -631,8 +661,7 @@
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <script>
-  // If you ever want to hook this to a backend, you can point this to a real API.
-  const API = "https://script.google.com/macros/s/EXAMPLE/exec";
+  const API = "https://script.google.com/macros/s/EXAMPLE/exec"; // placeholder
 
   let user = null;
   let isAdmin = false;
@@ -640,6 +669,7 @@
   const views = {
     home: document.getElementById('home'),
     notes: document.getElementById('notes'),
+    news: document.getElementById('news'),
     services: document.getElementById('services'),
     contact: document.getElementById('contact')
   };
@@ -647,6 +677,7 @@
   const navLinks = {
     home: document.getElementById('navHome'),
     notes: document.getElementById('navNotes'),
+    news: document.getElementById('navNews'),
     services: document.getElementById('navServices'),
     contact: document.getElementById('navContact')
   };
@@ -681,6 +712,10 @@
   const verifyAdminBtn = document.getElementById('verifyAdminBtn');
   const cancelAdminBtn = document.getElementById('cancelAdminBtn');
 
+  const newsDate1 = document.getElementById('newsDate1');
+  const newsDate2 = document.getElementById('newsDate2');
+  const newsDate3 = document.getElementById('newsDate3');
+
   function showToast(msg){
     toastEl.textContent = msg;
     toastEl.classList.add('show');
@@ -698,6 +733,7 @@
 
   navLinks.home.addEventListener('click', e=>{e.preventDefault();switchView('home');});
   navLinks.notes.addEventListener('click', e=>{e.preventDefault();switchView('notes');});
+  navLinks.news.addEventListener('click', e=>{e.preventDefault();switchView('news');});
   navLinks.services.addEventListener('click', e=>{e.preventDefault();switchView('services');});
   navLinks.contact.addEventListener('click', e=>{e.preventDefault();switchView('contact');});
 
@@ -775,7 +811,6 @@
 
   cancelAdminBtn.addEventListener('click', closeAdminModal);
 
-  // Local note save
   saveNoteBtn.addEventListener('click', ()=>{
     const txt = adminNoteText.value.trim();
     localStorage.setItem('hsc_ministry_note', txt);
@@ -783,7 +818,6 @@
     setTimeout(()=>saveNoteStatus.textContent="", 1500);
   });
 
-  // Simple rotating thoughts
   const thoughts = [
     {
       verse: "Strength isn’t loud. It’s the quiet choice to stand back up when no one’s watching.",
@@ -818,7 +852,6 @@
     setThought(currentThought);
   });
 
-  // Restore local state
   (function init(){
     const savedUser = localStorage.getItem('hsc_ministry_user');
     if(savedUser){
@@ -837,6 +870,11 @@
     if(savedNote){
       adminNoteText.value = savedNote;
     }
+
+    const today = new Date().toLocaleDateString();
+    if(newsDate1) newsDate1.textContent = today;
+    if(newsDate2) newsDate2.textContent = today;
+    if(newsDate3) newsDate3.textContent = today;
   })();
 </script>
 
