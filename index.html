@@ -1,20 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Hillbilly Storm Chasers</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* SAME GLOBAL STYLE AS MINISTRY PAGE */
+    :root{
+      color-scheme: dark;
+      --bg:#020617;
+      --card:#020617;
+      --border:#1f2937;
+      --accent:#fbbf24;
+      --accent-soft:#facc15;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#111827 0,#020617 55%,#000 100%);
+      color:var(--text);
+      line-height:1.6;
+      min-height:100vh;
+    }
+    a{color:var(--accent-soft);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* TOP NAV */
+    .site-nav{
+      background:#020617;
+      border-bottom:1px solid rgba(31,41,55,.9);
+      padding:8px 10px;
+      text-align:center;
+      font-size:13px;
+      position:sticky;
+      top:0;
+      z-index:40;
+    }
+    .site-nav a{
+      color:var(--muted);
+      margin:0 4px;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .site-nav a:hover{
+      color:var(--accent-soft);
+      text-decoration:underline;
+    }
+
+    /* HEADER */
+    header{
+      padding:12px 18px 10px;
+      border-bottom:1px solid rgba(15,23,42,.8);
+      background:linear-gradient(135deg,rgba(15,23,42,.96),rgba(8,47,73,.96));
+      position:sticky;
+      top:32px;
+      z-index:30;
+      backdrop-filter:blur(10px);
+    }
+    #brand{
+      font-size:20px;
+      font-weight:600;
+      letter-spacing:.04em;
+      color:var(--accent-soft);
+      text-shadow:0 0 10px rgba(0,0,0,.7);
+    }
+    header .row{
+      display:flex;
+      gap:8px;
+      margin-top:8px;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    select,button,input,textarea{
+      background:#020617;
+      color:var(--text);
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:13px;
+    }
+    button{
+      cursor:pointer;
+      background:linear-gradient(135deg,#fbbf24,#f97316);
+      border:none;
+      color:#111827;
+      font-weight:600;
+      box-shadow:0 0 12px rgba(251,191,36,.35);
+      transition:transform .08s ease,box-shadow .08s ease,filter .08s ease;
+    }
+    button:hover{
+      transform:translateY(-1px);
+      box-shadow:0 0 16px rgba(251,191,36,.5);
+      filter:brightness(1.05);
+    }
+    button.small{
+      padding:4px 10px;
+      font-size:12px;
+      border-radius:999px;
+      box-shadow:none;
+    }
+    .hidden{display:none !important;}
+
+    .container{
+      max-width:960px;
+      margin:0 auto;
+      padding:18px 18px 40px;
+    }
+
+    /* CARD */
+    .card{
+      background:rgba(15,23,42,.96);
+      border-radius:16px;
+      border:1px solid rgba(31,41,55,.9);
+      padding:14px 14px 16px;
+      margin-bottom:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.7);
+    }
+    h2{font-size:20px;margin-bottom:6px;color:var(--accent-soft);}
+    p{font-size:14px;margin:4px 0;color:var(--text);}
+    .small{font-size:12px;color:var(--muted);}
+
+    /* MOBILE NAV */
+    nav.subnav{
+      margin-top:18px;
+      padding:10px 10px 8px;
+      border-radius:999px;
+      border:1px solid rgba(31,41,55,.9);
+      background:rgba(15,23,42,.96);
+      display:flex;
+      gap:6px;
+      justify-content:space-between;
+      position:sticky;
+      top:82px;
+      z-index:25;
+      backdrop-filter:blur(10px);
+    }
+    nav.subnav a{
+      flex:1;
+      text-align:center;
+      padding:8px 6px;
+      font-size:13px;
+      border-radius:999px;
+      color:var(--muted);
+      text-decoration:none;
+      border:1px solid transparent;
+    }
+    nav.subnav a.active{
+      background:radial-gradient(circle at top,#fbbf24,#f97316);
+      color:#111827;
+      border-color:rgba(15,23,42,.9);
+      font-weight:600;
+      box-shadow:0 0 14px rgba(251,191,36,.45);
+    }
+
+    @media (max-width:700px){
+      nav.subnav{
+        position:fixed;
+        left:0;
+        right:0;
+        bottom:0;
+        top:auto;
+        border-radius:0;
+        border-top:1px solid rgba(51,65,85,.7);
+        padding:8px 10px;
+      }
+      .container{padding:14px 14px 80px;}
+      header{padding:10px 12px;}
+      #brand{font-size:16px;}
+      button,input,select,textarea{width:100%;}
+    }
+
+    footer{
+      text-align:center;
+      padding:16px 10px 26px;
+      font-size:12px;
+      color:var(--muted);
+      border-top:1px solid rgba(15,23,42,.9);
+      margin-top:10px;
+      background:rgba(3,7,18,.98);
+    }
+  </style>
 </head>
 
 <body>
 
-  <header>
-    <h1 class="header-title">Hillbilly Storm Chasers</h1>
-    <p class="tagline">Storm Chasing • Frontier Physics • Independent Research</p>
-  </header>
-
-  <nav>
+<!-- SITE-WIDE NAV -->
+<nav class="site-nav">
   <a href="index.html">Home</a> |
   <a href="gallery.html">Gallery</a> |
   <a href="research.html">Research Division</a> |
@@ -23,71 +198,187 @@
   <a href="store.html">Store</a> |
   <a href="merch.html">Mission</a> |
   <a href="services.html">Services</a> |
+  <a href="ministry.html">Ministry</a> |
   <a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Blog</a> |
   <a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Facebook</a> |
   <a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu</a>
 </nav>
 
-  <hr>
+<header>
+  <div id="brand">Hillbilly Storm Chasers</div>
+  <div class="row">
+    <button id="loginBtn">Login</button>
+    <button id="logoutBtn" class="hidden">Logout</button>
+  </div>
+</header>
 
-  <section>
-    <h2>Welcome to Hillbilly Storm Chasers</h2>
-    <p>
-      Hillbilly Storm Chasers is a combined storm‑chasing, media, and frontier‑research initiative 
-      based in Wyandotte, Oklahoma. We document severe weather across the Midwest, develop 
-      independent theoretical physics frameworks, and explore the deep connections between 
-      storms, nonlinear dynamics, and the informational structure of the universe.
-    </p>
+<!-- PAGE-SPECIFIC SUBNAV -->
+<nav class="subnav">
+  <a id="navHome" class="active">Home</a>
+  <a id="navChasing">Chasing</a>
+  <a id="navResearch">Research</a>
+  <a id="navMedia">Media</a>
+  <a id="navSupport">Support</a>
+</nav>
+
+<div class="container">
+
+  <!-- HOME -->
+  <section id="home" class="view">
+    <div class="card">
+      <h2>Welcome to Hillbilly Storm Chasers</h2>
+      <p>
+        Hillbilly Storm Chasers is a combined storm‑chasing, media, and frontier‑research initiative 
+        based in Wyandotte, Oklahoma. We document severe weather across the Midwest, develop 
+        independent theoretical physics frameworks, and explore the deep connections between 
+        storms, nonlinear dynamics, and the informational structure of the universe.
+      </p>
+    </div>
   </section>
 
-  <section>
-    <h2>Storm Chasing</h2>
-    <p>
-      From supercells to tornado intercepts, we chase and document severe weather across Oklahoma, 
-      Kansas, Missouri, and the surrounding region. Our gallery features real chase photos, 
-      field captures, and behind‑the‑scenes moments from the road.
-    </p>
-    <p><a href="gallery.html">View the Storm Chasing Gallery</a></p>
+  <!-- CHASING -->
+  <section id="chasing" class="view hidden">
+    <div class="card">
+      <h2>Storm Chasing</h2>
+      <p>
+        From supercells to tornado intercepts, we chase and document severe weather across Oklahoma, 
+        Kansas, Missouri, and the surrounding region. Our gallery features real chase photos, 
+        field captures, and behind‑the‑scenes moments from the road.
+      </p>
+      <p><a href="gallery.html">View the Storm Chasing Gallery</a></p>
+    </div>
   </section>
 
-  <section>
-    <h2>Research Division</h2>
-    <p>
-      The Hillbilly Storm Chasers Research Division conducts independent research in emergent time, 
-      informational geometry, ODIM‑U, Quiet‑Scalar Time, Foundry frameworks, warp‑field engineering, 
-      and resonant spacetime structures. All research is governed by the Information‑Bubble 
-      Peaceful‑Use License (IBPUL‑X.1).
-    </p>
-    <p><a href="research.html">Explore the Research Division</a></p>
+  <!-- RESEARCH -->
+  <section id="research" class="view hidden">
+    <div class="card">
+      <h2>Research Division</h2>
+      <p>
+        The Hillbilly Storm Chasers Research Division conducts independent research in emergent time, 
+        informational geometry, ODIM‑U, Quiet‑Scalar Time, Foundry frameworks, warp‑field engineering, 
+        and resonant spacetime structures. All research is governed by the Information‑Bubble 
+        Peaceful‑Use License (IBPUL‑X.1).
+      </p>
+      <p><a href="research.html">Explore the Research Division</a></p>
+    </div>
   </section>
 
-  <section>
-  <h2>Media & Community</h2>
-  <p><a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Visit the Official Blog</a></p>
-  <p><a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Follow on Facebook</a></p>
-  <p><a href="https://github.com/hillbillydave" target="_blank">GitHub – Research & Code</a></p>
-  <p><a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu – Research Profile</a></p>
+  <!-- MEDIA -->
+  <section id="media" class="view hidden">
+    <div class="card">
+      <h2>Media & Community</h2>
+      <p><a href="https://hillbillystormchasers.blogspot.com/" target="_blank">Visit the Official Blog</a></p>
+      <p><a href="https://www.facebook.com/HillbillyStormChasers" target="_blank">Follow on Facebook</a></p>
+      <p><a href="https://github.com/hillbillydave" target="_blank">GitHub – Research & Code</a></p>
+      <p><a href="https://independent.academia.edu/DavidBlackwell35" target="_blank">Academia.edu – Research Profile</a></p>
+    </div>
   </section>
 
-
-  <section>
-    <h2>Support the Chase</h2>
-    <p>
-      Your support helps fund fuel, equipment, cameras, research tools, and field operations.  
-      Every contribution keeps us on the road and in the lab.
-    </p>
-    <p><a href="support.html">Support Hillbilly Storm Chasers</a></p>
+  <!-- SUPPORT -->
+  <section id="support" class="view hidden">
+    <div class="card">
+      <h2>Support the Chase</h2>
+      <p>
+        Your support helps fund fuel, equipment, cameras, research tools, and field operations.  
+        Every contribution keeps us on the road and in the lab.
+      </p>
+      <p><a href="support.html">Support Hillbilly Storm Chasers</a></p>
+    </div>
   </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p><a href="contact.html">Get in touch with us</a></p>
-  </section>
+</div>
 
-  <footer>
-    © 2026 Hillbilly Storm Chasers — All Rights Reserved<br>
-    Research licensed under IBPUL‑X.1 — DOI: <a href="https://doi.org/10.5281/zenodo.19929587" target="_blank">10.5281/zenodo.19929587</a>
-  </footer>
+<!-- LOGIN MODAL (same as Ministry page) -->
+<div id="authModal" class="hidden" style="position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;z-index:50">
+  <div style="background:#020617;padding:20px;border-radius:16px;width:320px;border:1px solid rgba(51,65,85,.8);box-shadow:0 18px 40px rgba(0,0,0,.9)">
+    <h3 style="margin:0 0 10px">Account</h3>
+    <label class="small">Email</label>
+    <input id="email" placeholder="Email">
+    <label class="small" style="margin-top:6px;display:block;">Password</label>
+    <input id="password" type="password" placeholder="Password">
+    <div class="row" style="margin-top:10px">
+      <button id="doLoginBtn">Login</button>
+      <button id="closeAuthBtn" class="small">Close</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+  /* SAME JS SYSTEM AS MINISTRY PAGE */
+  const views = {
+    home: document.getElementById('home'),
+    chasing: document.getElementById('chasing'),
+    research: document.getElementById('research'),
+    media: document.getElementById('media'),
+    support: document.getElementById('support')
+  };
+
+  const navLinks = {
+    home: document.getElementById('navHome'),
+    chasing: document.getElementById('navChasing'),
+    research: document.getElementById('navResearch'),
+    media: document.getElementById('navMedia'),
+    support: document.getElementById('navSupport')
+  };
+
+  function switchView(name){
+    Object.keys(views).forEach(k=>{
+      views[k].classList.toggle('hidden', k !== name);
+    });
+    Object.keys(navLinks).forEach(k=>{
+      navLinks[k].classList.toggle('active', k === name);
+    });
+  }
+
+  navLinks.home.onclick = ()=>switchView('home');
+  navLinks.chasing.onclick = ()=>switchView('chasing');
+  navLinks.research.onclick = ()=>switchView('research');
+  navLinks.media.onclick = ()=>switchView('media');
+  navLinks.support.onclick = ()=>switchView('support');
+
+  /* LOGIN SYSTEM */
+  const loginBtn = document.getElementById('loginBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const authModal = document.getElementById('authModal');
+  const emailInput = document.getElementById('email');
+  const passInput = document.getElementById('password');
+  const doLoginBtn = document.getElementById('doLoginBtn');
+  const closeAuthBtn = document.getElementById('closeAuthBtn');
+
+  loginBtn.onclick = ()=>authModal.classList.remove('hidden');
+  closeAuthBtn.onclick = ()=>authModal.classList.add('hidden');
+
+  doLoginBtn.onclick = ()=>{
+    const email = emailInput.value.trim();
+    const pass = passInput.value.trim();
+    if(!email || !pass) return;
+    localStorage.setItem('hsc_user', email);
+    loginBtn.classList.add('hidden');
+    logoutBtn.classList.remove('hidden');
+    authModal.classList.add('hidden');
+  };
+
+  logoutBtn.onclick = ()=>{
+    localStorage.removeItem('hsc_user');
+    loginBtn.classList.remove('hidden');
+    logoutBtn.classList.add('hidden');
+  };
+
+  (function init(){
+    if(localStorage.getItem('hsc_user')){
+      loginBtn.classList.add('hidden');
+      logoutBtn.classList.remove('hidden');
+    }
+  })();
+</script>
+
+<footer>
+  © 2026 Hillbilly Storm Chasers — All Rights Reserved<br>
+  Research licensed under IBPUL‑X.1 — DOI:
+  <a href="https://doi.org/10.5281/zenodo.19929587" target="_blank">10.5281/zenodo.19929587</a>
+</footer>
 
 </body>
 </html>
